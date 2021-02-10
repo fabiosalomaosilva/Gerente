@@ -36,6 +36,14 @@ namespace Gerente.Domain.Entities
         public virtual Secretaria Secretaria { get; set; }
         public int SetorId { get; set; }
         public virtual Setor Setor { get; set; }
+
+        public int AcompanhanteId { get; set; }
+        public virtual Pessoa Acompanhante { get; set; }
+
+        public int RepresentanteId { get; set; }
+        public virtual Pessoa Representante { get; set; }
+
+
         public string Matricula { get; set; }
         public virtual ICollection<Telefone> Telefones { get; set; }
         public virtual ICollection<Documento> Documentos { get; set; }

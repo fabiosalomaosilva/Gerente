@@ -1,4 +1,5 @@
-﻿using Gerente.Infra.Data.Context;
+﻿using Gerente.Domain.Interfaces;
+using Gerente.Infra.Data.Context;
 using Gerente.Infra.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -10,7 +11,7 @@ namespace Gerente.Infra.IoC
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<DataDbContext>(o => 
+            services.AddDbContext<DataDbContext>(o =>
                 o.UseSqlServer(
                     configuration.GetConnectionString("DefaultConnection"),
                     b => b.MigrationsAssembly(typeof(DataDbContext).Assembly.FullName)));
@@ -28,7 +29,7 @@ namespace Gerente.Infra.IoC
                     o.User.RequireUniqueEmail = true;
 
                 })
-                .AddEntityFrameworkStores<DataDbContext>(); 
+                .AddEntityFrameworkStores<DataDbContext>();
             return services;
         }
     }

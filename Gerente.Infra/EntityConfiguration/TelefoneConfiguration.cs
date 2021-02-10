@@ -11,7 +11,7 @@ namespace Gerente.Infra.Data.EntityConfiguration
             builder.HasKey(p => p.Id);
             builder.Property(p => p.CriadoPor).HasMaxLength(100);
             builder.Property(p => p.AlteradoPor).HasMaxLength(100);
-            builder.Property(p => p.PessoaResponsavel).HasMaxLength(150).IsRequired();
+            builder.Property(p => p.PessoaResponsavel).HasMaxLength(150);
             builder.Property(p => p.Numero).HasMaxLength(30).IsRequired();
             builder.HasOne(p => p.Secretaria).WithMany(b => b.Telefones).HasForeignKey(p => p.SecretariaId);
             builder.HasOne(p => p.Setor).WithMany(b => b.Telefones).HasForeignKey(p => p.SetorId);

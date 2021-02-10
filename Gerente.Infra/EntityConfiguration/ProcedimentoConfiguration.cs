@@ -13,7 +13,7 @@ namespace Gerente.Infra.Data.EntityConfiguration
             builder.Property(p => p.AlteradoPor).HasMaxLength(100);
             builder.Property(p => p.Nome).HasMaxLength(100).IsRequired();
             builder.HasOne(p => p.Especialidade).WithMany(b => b.Procedimentos).HasForeignKey(p => p.EspecialidadeId);
-            builder.Property(p => p.TempoDuracao).IsRequired();
+            builder.Property(p => p.TempoDuracao).HasMaxLength(20).IsRequired();
         }
     }
 }

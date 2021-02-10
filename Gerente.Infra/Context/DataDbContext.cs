@@ -13,6 +13,7 @@ namespace Gerente.Infra.Data.Context
 
         public DbSet<Aditivo> Aditivos { get; set; }
         public DbSet<Agendamento> Agendamentos { get; set; }
+        public DbSet<Auditoria> Auditorias { get; set; }
         public DbSet<Cargo> Cargos{ get; set; }
         public DbSet<Documento> Documentos { get; set; }
         public DbSet<Especialidade> Especialidades { get; set; }
@@ -32,6 +33,7 @@ namespace Gerente.Infra.Data.Context
             base.OnModelCreating(builder);
             builder.Entity<Aditivo>().ToTable("Aditivo");
             builder.Entity<Agendamento>().ToTable("Agendamento");
+            builder.Entity<Auditoria>().ToTable("Auditoria");
             builder.Entity<Cargo>().ToTable("Cargo");
             builder.Entity<Contrato>().ToTable("Contrato");
             builder.Entity<Documento>().ToTable("Documento");
@@ -48,6 +50,8 @@ namespace Gerente.Infra.Data.Context
             builder.Entity<Telefone>().ToTable("Telefone");
 
             builder.ApplyConfiguration(new AditivoConfiguration());
+            builder.ApplyConfiguration(new AgendamentoConfiguration());
+            builder.ApplyConfiguration(new AuditoriaConfiguration());
             builder.ApplyConfiguration(new ContratoConfiguration());
             builder.ApplyConfiguration(new DocumentoConfiguration());
             builder.ApplyConfiguration(new EspecialidadeConfiguration());

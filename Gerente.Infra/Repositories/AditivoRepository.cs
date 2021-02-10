@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Gerente.Infra.Data.Repositories
 {
-    class AditivoRepository : IAditivoRepository
+    public class AditivoRepository : IAditivoRepository
     {
         private readonly DataDbContext _db;
 
@@ -30,12 +30,18 @@ namespace Gerente.Infra.Data.Repositories
 
         public void Add(Aditivo obj)
         {
+            var data = DateTime.Now;
+            obj.AlteradoEm = data;
+            obj.CriadoEm = data;
+            obj.Ativo = true;
             _db.Add(obj);
             _db.SaveChanges();
+
         }
 
         public void Edit(Aditivo obj)
         {
+            obj.AlteradoEm = DateTime.Now;
             _db.Update(obj);
             _db.SaveChanges();
         }
