@@ -1,0 +1,16 @@
+﻿using Gerente.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
+namespace Gerente.Infra.Data.EntityConfiguration
+{
+    public class ProcedimentoConfiguration : IEntityTypeConfiguration<Procedimento>
+    {
+        public void Configure(EntityTypeBuilder<Procedimento> builder)
+        {
+            builder.Property(p => p.Nome).HasMaxLength(100).IsRequired();
+            builder.HasOne(p => p.Especialidade).WithMany(b => b.Procedimentos).HasForeignKey(p => p.EspecialidadeId);
+            builder.Property(p => p.TempoDuracao).IsRequired();
+        }
+    }
+}
