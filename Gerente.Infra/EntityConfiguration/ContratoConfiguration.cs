@@ -8,8 +8,12 @@ namespace Gerente.Infra.Data.EntityConfiguration
     {
         public void Configure(EntityTypeBuilder<Contrato> builder)
         {
+            builder.HasKey(p => p.Id);
+            builder.Property(p => p.CriadoPor).HasMaxLength(100);
+            builder.Property(p => p.AlteradoPor).HasMaxLength(100);
             builder.Property(p => p.Numero).HasMaxLength(40).IsRequired();
-            builder.HasOne(p => p.Fornecedor).WithMany(b => b.Contratos).HasForeignKey(p => p.FornecedorId);
+            builder.HasOne(p => p.Fornecedor).WithMany(b => b.ContratosFornecedores).HasForeignKey(p => p.FornecedorId);
+            builder.HasOne(p => p.Representante).WithMany(b => b.ContratosRepresentantes).HasForeignKey(p => p.RepresentanteId);
             builder.Property(p => p.ModalidadeLicitacao).IsRequired();
             builder.Property(p => p.SistemaLicitacao).IsRequired();
             builder.Property(p => p.ModalidadeLicitacao).IsRequired();

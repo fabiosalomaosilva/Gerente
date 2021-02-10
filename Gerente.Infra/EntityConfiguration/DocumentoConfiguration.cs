@@ -8,6 +8,9 @@ namespace Gerente.Infra.Data.EntityConfiguration
     {
         public void Configure(EntityTypeBuilder<Documento> builder)
         {
+            builder.HasKey(p => p.Id);
+            builder.Property(p => p.CriadoPor).HasMaxLength(100);
+            builder.Property(p => p.AlteradoPor).HasMaxLength(100);
             builder.Property(p => p.Nome).HasMaxLength(150).IsRequired();
             builder.Property(p => p.Url).HasMaxLength(255).IsRequired();
             builder.HasOne(p => p.Contrato).WithMany(b => b.Documentos).HasForeignKey(p => p.ContratoId);

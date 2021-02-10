@@ -4,9 +4,14 @@ using Gerente.Domain.Enums;
 
 namespace Gerente.Domain.Entities
 {
-    public class Agendamento : ControleVersao
+    public class Agendamento
     {
-
+        public int Id { get; set; }
+        public string CriadoPor { get; set; }
+        public DateTime CriadoEm { get; set; }
+        public string AlteradoPor { get; set; }
+        public DateTime AlteradoEm { get; set; }
+        public bool Ativo { get; set; }
         public int FilaProcedimentoId { get; set; }
         public FilaProcedimento FilaProcedimento { get; set; }
         public string Titulo { get; set; }

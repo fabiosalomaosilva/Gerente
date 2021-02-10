@@ -8,6 +8,9 @@ namespace Gerente.Infra.Data.EntityConfiguration
     {
         public void Configure(EntityTypeBuilder<Aditivo> builder)
         {
+            builder.HasKey(p => p.Id);
+            builder.Property(p => p.CriadoPor).HasMaxLength(100);
+            builder.Property(p => p.AlteradoPor).HasMaxLength(100);
             builder.Property(p => p.Numero).HasMaxLength(40).IsRequired();
             builder.HasOne(p => p.Contrato).WithMany(b => b.Aditivos).HasForeignKey(p => p.ContratoId);
             builder.Property(p => p.DataAditivo).IsRequired();

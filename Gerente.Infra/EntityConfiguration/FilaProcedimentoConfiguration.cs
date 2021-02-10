@@ -8,6 +8,9 @@ namespace Gerente.Infra.Data.EntityConfiguration
     {
         public void Configure(EntityTypeBuilder<FilaProcedimento> builder)
         {
+            builder.HasKey(p => p.Id);
+            builder.Property(p => p.CriadoPor).HasMaxLength(100);
+            builder.Property(p => p.AlteradoPor).HasMaxLength(100);
             builder.HasOne(p => p.Paciente).WithMany(b => b.FilaProcedimentos).HasForeignKey(p => p.PacienteId);
             builder.HasOne(p => p.Especialidade).WithMany(b => b.FilaProcedimentos).HasForeignKey(p => p.EspecialidadeId);
             builder.HasOne(p => p.Procedimento).WithMany(b => b.FilaProcedimentos).HasForeignKey(p => p.ProcedimentoId);

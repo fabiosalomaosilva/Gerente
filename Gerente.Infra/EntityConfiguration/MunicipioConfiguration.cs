@@ -8,6 +8,9 @@ namespace Gerente.Infra.Data.EntityConfiguration
     {
         public void Configure(EntityTypeBuilder<Municipio> builder)
         {
+            builder.HasKey(p => p.Id);
+            builder.Property(p => p.CriadoPor).HasMaxLength(100);
+            builder.Property(p => p.AlteradoPor).HasMaxLength(100);
             builder.Property(p => p.Nome).HasMaxLength(80).IsRequired();
             builder.HasOne(p => p.Estado).WithMany(b => b.Municipios).HasForeignKey(p => p.EstadoId);
         }

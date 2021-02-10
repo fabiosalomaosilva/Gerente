@@ -33,8 +33,6 @@ namespace Gerente.Infra.Data.Context
             builder.Entity<Aditivo>().ToTable("Aditivo");
             builder.Entity<Agendamento>().ToTable("Agendamento");
             builder.Entity<Cargo>().ToTable("Cargo");
-            builder.Entity<ControleVersao>().ToTable("ControleVersao");
-            builder.Entity<ControleVersaoEndereco>().ToTable("ControleVersaoEndereco");
             builder.Entity<Contrato>().ToTable("Contrato");
             builder.Entity<Documento>().ToTable("Documento");
             builder.Entity<Especialidade>().ToTable("Especialidade");
@@ -48,18 +46,6 @@ namespace Gerente.Infra.Data.Context
             builder.Entity<Secretaria>().ToTable("Secretaria");
             builder.Entity<Setor>().ToTable("Setor");
             builder.Entity<Telefone>().ToTable("Telefone");
-
-            builder.Entity<ControleVersao>().HasKey(p => p.Id);
-            builder.Entity<ControleVersao>().Property(p => p.CriadoPor).HasMaxLength(100);
-            builder.Entity<ControleVersao>().Property(p => p.AlteradoPor).HasMaxLength(100);
-            builder.Entity<ControleVersaoEndereco>().Property(p => p.Logradouro).HasMaxLength(150).IsRequired();
-            builder.Entity<ControleVersaoEndereco>().Property(p => p.Numero).HasMaxLength(50).IsRequired();
-            builder.Entity<ControleVersaoEndereco>().Property(p => p.Bairro).HasMaxLength(100).IsRequired();
-            builder.Entity<ControleVersaoEndereco>().Property(p => p.Complemento).HasMaxLength(100);
-            builder.Entity<ControleVersaoEndereco>().Property(p => p.Cep).HasMaxLength(20);
-            builder.Entity<ControleVersaoEndereco>().HasOne(p => p.Estado).WithMany(b => b.ControleVersaoEnderecos).HasForeignKey(p => p.EstadoId);
-            builder.Entity<ControleVersaoEndereco>().HasOne(p => p.Municipio).WithMany(b => b.ControleVersaoEnderecos).HasForeignKey(p => p.MunicipioId);
-
 
             builder.ApplyConfiguration(new AditivoConfiguration());
             builder.ApplyConfiguration(new ContratoConfiguration());
