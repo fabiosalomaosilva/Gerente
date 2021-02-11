@@ -8,8 +8,8 @@ namespace Gerente.Domain.Interfaces
     {
         Task<IEnumerable<Procedimento>> Get();
         Task<Procedimento> Get(int? id);
-        void Add(Procedimento obj);
-        void Edit(Procedimento obj);
-        void Delete(Procedimento obj);
+        void Add(Procedimento obj, string nomeUsuario);
+        void Edit(Procedimento obj, string nomeUsuario);
+        void Delete(Procedimento obj, string nomeUsuario);
     }
 }

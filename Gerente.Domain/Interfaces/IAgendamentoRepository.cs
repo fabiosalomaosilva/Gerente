@@ -8,8 +8,8 @@ namespace Gerente.Domain.Interfaces
     {
         Task<IEnumerable<Agendamento>> Get();
         Task<Agendamento> Get(int? id);
-        void Add(Agendamento obj);
-        void Edit(Agendamento obj);
-        void Delete(Agendamento obj);
+        void Add(Agendamento obj, string nomeUsuario);
+        void Edit(Agendamento obj, string nomeUsuario);
+        void Delete(Agendamento obj, string nomeUsuario);
     }
 }

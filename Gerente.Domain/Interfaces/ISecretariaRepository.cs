@@ -8,8 +8,8 @@ namespace Gerente.Domain.Interfaces
     {
         Task<IEnumerable<Secretaria>> Get();
         Task<Secretaria> Get(int? id);
-        void Add(Secretaria obj);
-        void Edit(Secretaria obj);
-        void Delete(Secretaria obj);
+        void Add(Secretaria obj, string nomeUsuario);
+        void Edit(Secretaria obj, string nomeUsuario);
+        void Delete(Secretaria obj, string nomeUsuario);
     }
 }

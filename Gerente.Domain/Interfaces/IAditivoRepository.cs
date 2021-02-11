@@ -11,8 +11,8 @@ namespace Gerente.Domain.Interfaces
     {
         Task<IEnumerable<Aditivo>> Get();
         Task<Aditivo> Get(int? id);
-        void Add(Aditivo obj);
-        void Edit(Aditivo obj);
-        void Delete(Aditivo obj);
+        void Add(Aditivo obj, string nomeUsuario);
+        void Edit(Aditivo obj, string nomeUsuario);
+        void Delete(Aditivo obj, string nomeUsuario);
     }
 }

@@ -14,7 +14,8 @@ namespace Gerente.Infra.Data.Context
         public DbSet<Aditivo> Aditivos { get; set; }
         public DbSet<Agendamento> Agendamentos { get; set; }
         public DbSet<Auditoria> Auditorias { get; set; }
-        public DbSet<Cargo> Cargos{ get; set; }
+        public DbSet<Cargo> Cargos { get; set; }
+        public DbSet<Contrato> Contratos { get; set; }
         public DbSet<Documento> Documentos { get; set; }
         public DbSet<Especialidade> Especialidades { get; set; }
         public DbSet<Estado> Estados { get; set; }

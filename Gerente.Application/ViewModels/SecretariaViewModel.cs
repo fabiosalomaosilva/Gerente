@@ -1,6 +1,6 @@
 ﻿namespace Gerente.Application.ViewModels
 {
-    public class SecretariaViewModelo
+    public class SecretariaViewModel
     {
         public int Id { get; set; }
         public string Nome { get; set; }

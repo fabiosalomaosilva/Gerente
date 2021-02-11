@@ -8,8 +8,8 @@ namespace Gerente.Domain.Interfaces
     {
         Task<IEnumerable<Cargo>> Get();
         Task<Cargo> Get(int? id);
-        void Add(Cargo obj);
-        void Edit(Cargo obj);
-        void Delete(Cargo obj);
+        void Add(Cargo obj, string nomeUsuario);
+        void Edit(Cargo obj, string nomeUsuario);
+        void Delete(Cargo obj, string nomeUsuario);
     }
 }

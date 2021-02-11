@@ -18,6 +18,7 @@ namespace Gerente.Infra.Data.Repositories
         {
             _db = db;
         }
+
         public async Task<IEnumerable<Aditivo>> Get()
         {
             return await _db.Aditivos.ToListAsync();
@@ -28,27 +29,31 @@ namespace Gerente.Infra.Data.Repositories
             return await _db.Aditivos.FindAsync(id);
         }
 
-        public void Add(Aditivo obj)
+        public void Add(Aditivo obj, string nomeUsuario)
         {
             var data = DateTime.Now;
             obj.AlteradoEm = data;
             obj.CriadoEm = data;
+            obj.AlteradoPor = nomeUsuario;
+            obj.CriadoPor = nomeUsuario;
             obj.Ativo = true;
             _db.Add(obj);
             _db.SaveChanges();
-
         }
 
-        public void Edit(Aditivo obj)
+        public void Edit(Aditivo obj, string nomeUsuario)
         {
             obj.AlteradoEm = DateTime.Now;
+            obj.AlteradoPor = nomeUsuario;
             _db.Update(obj);
             _db.SaveChanges();
         }
 
-        public void Delete(Aditivo obj)
+        public void Delete(Aditivo obj, string nomeUsuario)
         {
             obj.Ativo = false;
+            obj.AlteradoEm = DateTime.Now;
+            obj.AlteradoPor = nomeUsuario;
             _db.Update(obj);
             _db.SaveChanges();
         }
