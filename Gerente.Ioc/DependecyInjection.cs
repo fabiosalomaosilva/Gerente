@@ -4,6 +4,8 @@ using Gerente.Domain.Interfaces;
 using Gerente.Infra.Data.Context;
 using Gerente.Infra.Data.Models;
 using Gerente.Infra.Data.Repositories;
+using Gerente.Infra.Data.Services;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -34,6 +36,9 @@ namespace Gerente.Infra.IoC
                 })
                 .AddEntityFrameworkStores<DataDbContext>();
 
+            services.AddTransient<IEmailSender, EmailSender>();
+
+            services.AddScoped<IAccountRepository, AccountRepository>();
             services.AddScoped<IAditivoRepository, AditivoRepository>();
             services.AddScoped<IAgendamentoRepository, AgendamentoRepository>();
             services.AddScoped<ICargoRepository, CargoRepository>();
@@ -51,6 +56,7 @@ namespace Gerente.Infra.IoC
             services.AddScoped<ISetorRepository, SetorRepository>();
             services.AddScoped<ITelefoneRepository, TelefoneRepository>();
 
+            services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IAcompanhanteService, AcompanhanteService>();
             services.AddScoped<IAditivoService, AditivoService>();
             services.AddScoped<IAgendamentoService, AgendamentoService>();

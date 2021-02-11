@@ -16,6 +16,5 @@ namespace Gerente.Infra.Data.Models
         public string Secretaria { get; set; }
         public int SetorId { get; set; }
         public string Setor { get; set; }
-
     }
 }
