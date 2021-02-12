@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Gerente.Api.MappingConfig;
 using Gerente.Api.Services;
 using Gerente.Infra.IoC;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -32,6 +33,7 @@ namespace Gerente.Api
         {
             services.AddInfrastructure(Configuration);
             services.AddCors();
+            services.AddAutoMapperConfiguration();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

@@ -30,10 +30,10 @@ namespace Gerente.Infra.Data.Repositories
         }
         public async Task<UserLoginResult> LoginAsync(UserLogin user)
         {
-            var result = await _signInManager.PasswordSignInAsync(user.Username, user.Password, false, false);
+            var result = await _signInManager.PasswordSignInAsync(user.Email, user.Password, false, false);
             if (result.Succeeded)
             {
-                var usuario = await _userManager.FindByEmailAsync(user.Username);
+                var usuario = await _userManager.FindByEmailAsync(user.Email);
                 return new UserLoginResult
                 {
                     Usuario = _mapper.Map<User>(usuario),
@@ -67,6 +67,7 @@ namespace Gerente.Infra.Data.Repositories
         public async Task<bool> RegisterAsync(User obj)
         {
             var user = _mapper.Map<Usuario>(obj);
+            user.UserName = user.Email;
             var result = await _userManager.CreateAsync(user, obj.Cpf);
             return result.Succeeded;
         }

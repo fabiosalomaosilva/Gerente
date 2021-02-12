@@ -1,5 +1,8 @@
-﻿using Gerente.Domain.Entities;
+﻿using System;
+using Gerente.Domain.Entities;
 using Gerente.Infra.Data.EntityConfiguration;
+using Gerente.Infra.Data.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -67,6 +70,78 @@ namespace Gerente.Infra.Data.Context
             builder.ApplyConfiguration(new SetorConfiguration());
             builder.ApplyConfiguration(new TelefoneConfiguration());
             builder.ApplyConfiguration(new UsuarioConfiguration());
+
+            builder.Entity<Estado>().HasData(new Estado
+            {
+                Id = 1,
+                CriadoPor = "admin",
+                AlteradoPor = "admin",
+                CriadoEm = DateTime.Now,
+                AlteradoEm = DateTime.Now,
+                Ativo = true,
+                Nome = "Acre",
+                Uf = "AC"
+            });
+            builder.Entity<Municipio>().HasData(new Municipio
+            {
+                Id = 1,
+                CriadoPor = "admin",
+                AlteradoPor = "admin",
+                CriadoEm = DateTime.Now,
+                AlteradoEm = DateTime.Now,
+                Ativo = true,
+                Nome = "Rio Branco",
+                EstadoId = 1
+            });
+            builder.Entity<Secretaria>().HasData(new Secretaria
+            {
+                Id = 1,
+                CriadoPor = "admin",
+                AlteradoPor = "admin",
+                CriadoEm = DateTime.Now,
+                AlteradoEm = DateTime.Now,
+                Ativo = true,
+                Nome = "Secretaria de Estado de Saúde do Acre",
+                NomeSimplificado = "SESACRE",
+                Logradouro = "Rua Benjamim Constant",
+                Numero = "81",
+                Bairro = "Centro",
+                Cep = "69900000",
+                EstadoId = 1,
+                MunicipioId = 1
+            });
+            builder.Entity<Setor>().HasData(new Setor
+            {
+                Id = 1,
+                CriadoPor = "admin",
+                AlteradoPor = "admin",
+                CriadoEm = DateTime.Now,
+                AlteradoEm = DateTime.Now,
+                Ativo = true,
+                Nome = "Complexo Regulador Estadual",
+                Email = "gerenciacomplexo@gmail.com",
+                SecretariaId = 1
+            });
+
+            var user = new Usuario
+            {
+                Id = Guid.NewGuid().ToString(),
+                NomeCompleto = "Fábio Salomão Silva Vogth",
+                Email = "fabio@arquivarnet.com.br",
+                UserName = "fabio@arquivarnet.com.br",
+                Matricula = "123456",
+                Cpf = "65788974291",
+                DataNascimento = Convert.ToDateTime("08/02/1981"),
+                SecretariaId = 1,
+                SetorId = 1,
+                Foto = "https://fundhacre.blob.core.windows.net/avatar/masculino01.png",
+                FotoExtensao = ".png",
+                Sexo = "Indefinido",
+                EmailConfirmed = true
+            };
+            var ph = new PasswordHasher<Usuario>();
+            user.PasswordHash = ph.HashPassword(user, user.Cpf);
+            builder.Entity<Usuario>().HasData(user);
         }
     }
 }

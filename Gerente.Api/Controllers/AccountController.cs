@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Gerente.Api.Services;
+using Gerente.Api.Utils;
 using Gerente.Application.Interfaces;
 using Gerente.Application.ViewModels;
 using Microsoft.AspNetCore.Authorization;
@@ -37,6 +38,11 @@ namespace Gerente.Api.Controllers
         [Route("Register")]
         public async Task<ActionResult> Register([FromBody] UsuarioViewModel user)
         {
+            var sexo = (await DefinirSexoService.GetSexo(user.NomeCompleto.GetFirstName())).Sexo;
+            user.Sexo = sexo;
+            user.Foto = DefinirImagenService.SelecionarAvatar(sexo);
+            user.FotoExtensao = ".png";
+
             var result = await _service.Register(user);
             if (result == false)
                 return NotFound(new { message = "Ocorreu um erro ao salvar o usuário" });
