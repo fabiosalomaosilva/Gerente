@@ -1,11 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using Gerente.Api.Services;
 using Gerente.Application.Interfaces;
-using Gerente.Domain.Entities;
+using Gerente.Application.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 
 namespace Gerente.Api.Controllers
@@ -16,17 +13,34 @@ namespace Gerente.Api.Controllers
     public class AccountController : ControllerBase
     {
         private readonly IAccountService _service;
+        private readonly ITokenService _tokenService;
 
-        public AccountController(IAccountService service)
+        public AccountController(IAccountService service, ITokenService tokenService)
         {
             _service = service;
+            _tokenService = tokenService;
         }
 
         [HttpPost]
         [AllowAnonymous]
-        [Route("Token")]
-        public async Task<ActionResult> Token(User user)
+        [Route("Login")]
+        public async Task<ActionResult<dynamic>> Login([FromBody] UserLoginViewModel user)
         {
+            var result = await _service.Login(user);
+            if (result.Succeeded == false)
+                return NotFound(new { message = result.Error});
+            return _tokenService.AddToken(result.Usuario);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [Route("Register")]
+        public async Task<ActionResult> Register([FromBody] UsuarioViewModel user)
+        {
+            var result = await _service.Register(user);
+            if (result == false)
+                return NotFound(new { message = "Ocorreu um erro ao salvar o usuário" });
+            return Ok(user);
         }
     }
 }

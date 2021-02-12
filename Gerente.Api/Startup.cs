@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Gerente.Api.Services;
 using Gerente.Infra.IoC;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -30,11 +31,15 @@ namespace Gerente.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddInfrastructure(Configuration);
+            services.AddCors();
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Gerente.Api", Version = "v1" });
             });
+        
+            services.AddScoped<ITokenService, TokenService>();
 
             var apiKey = Configuration.GetSection("ApiKey").Value;
             var key = Encoding.ASCII.GetBytes(apiKey);
@@ -70,6 +75,10 @@ namespace Gerente.Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCors(x => x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
 
             app.UseAuthentication();
             app.UseAuthorization();

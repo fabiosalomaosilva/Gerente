@@ -1,15 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using Gerente.Application.Models;
 using Gerente.Application.ViewModels;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Gerente.Api.Services
 {
-    public interface ITokenService
-    {
-        Token AddToken(UsuarioViewModel user);
-    }
     public class TokenService : ITokenService
     {
         private readonly string _apiKey;
@@ -19,7 +18,7 @@ namespace Gerente.Api.Services
             _apiKey = config.GetSection("ApiKey").Value;
         }
 
-        public Token AddToken(Usuario user, List<Permissao> permissoes)
+        public Token AddToken(UsuarioViewModel user)
         {
             if (user != null)
             {
@@ -27,7 +26,7 @@ namespace Gerente.Api.Services
                 var key = Encoding.ASCII.GetBytes(_apiKey);
                 var tokenDescriptor = new SecurityTokenDescriptor
                 {
-                    Subject = GetClaimsIdentity(user, JsonConvert.SerializeObject(permissoes)),
+                    Subject = GetClaimsIdentity(user),
                     Expires = DateTime.UtcNow.AddHours(2),
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key),
                         SecurityAlgorithms.HmacSha256Signature)
@@ -44,18 +43,14 @@ namespace Gerente.Api.Services
                 {
                     access_token = t,
                     expires = data.AddDays(7).Second.ToString(),
-                    clientId = user.ClientId,
-                    cargo = user.Cargo,
-                    cargoId = user.CargoId,
                     email = user.Email,
                     fotoUri = foto,
                     nomeCompleto = user.NomeCompleto,
-                    perfil = user.Perfil,
-                    perfilId = user.PerfilId,
-                    permissoes = permissoes.ToArray(),
                     setor = user.Setor,
                     setorId = user.SetorId,
-                    Id = user.Id,
+                    secretaria = user.Secretaria,
+                    secretariaId = user.SecretariaId,
+                    id = user.Id,
                     token_type = "bearer"
                 };
             }
@@ -63,29 +58,21 @@ namespace Gerente.Api.Services
             return null;
         }
 
-        private static ClaimsIdentity GetClaimsIdentity(Usuario user, string permissoes)
+        private static ClaimsIdentity GetClaimsIdentity(UsuarioViewModel user)
         {
             return new ClaimsIdentity(new[]
                 {
                     new Claim(ClaimTypes.Name, user.NomeCompleto),
                     new Claim("Username", user.Email),
                     new Claim("UserId", user.Id),
-                    new Claim("ClientId", user.ClientId),
-                    new Claim("SecretariaId", user.SecretariaId),
+                    new Claim("SecretariaId", user.SecretariaId.ToString()),
                     new Claim("Secretaria", user.Secretaria),
-                    new Claim("SetorId", user.SetorId),
+                    new Claim("SetorId", user.SetorId.ToString()),
                     new Claim("Setor", user.Setor),
-                    new Claim("CargoId", user.CargoId),
-                    new Claim("PerfilId", user.PerfilId),
-                    new Claim("Permissoes", permissoes),
                     new Claim("Email", user.Email),
-                    new Claim("SuperAdministrador", user.SuperAdministrador.ToString()),
+                    new Claim("FotoUri", user.Foto),
                 }
             );
         }
-
-
     }
-
-
 }
