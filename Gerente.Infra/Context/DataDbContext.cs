@@ -1,7 +1,12 @@
 ﻿using System;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using Gerente.Domain.Entities;
 using Gerente.Infra.Data.EntityConfiguration;
 using Gerente.Infra.Data.Models;
+using Gerente.Infra.Data.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -10,8 +15,11 @@ namespace Gerente.Infra.Data.Context
 {
     public class DataDbContext : IdentityDbContext
     {
-        public DataDbContext(DbContextOptions<DataDbContext> options) : base(options)
+        private readonly ICurrentUserService _currentUserService;
+
+        public DataDbContext(DbContextOptions<DataDbContext> options, ICurrentUserService currentUserService) : base(options)
         {
+            _currentUserService = currentUserService;
         }
 
         public DbSet<Aditivo> Aditivos { get; set; }
@@ -31,6 +39,40 @@ namespace Gerente.Infra.Data.Context
         public DbSet<Secretaria> Secretarias { get; set; }
         public DbSet<Setor> Setores { get; set; }
         public DbSet<Telefone> Telefones { get; set; }
+
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            var data = DateTime.Now;
+            foreach (var i in ChangeTracker.Entries().Where(p => p.State == EntityState.Added && p.Entity is ControleVersao))
+            {
+                var controle = i.Entity as ControleVersao;
+                controle.CriadoPor = _currentUserService.GetUser();
+                controle.AlteradoPor = _currentUserService.GetUser();
+                controle.CriadoEm = data;
+                controle.AlteradoEm = data;
+                controle.Ativo = true;
+            }
+            foreach (var i in ChangeTracker.Entries().Where(p => p.State == EntityState.Modified && p.Entity is ControleVersao))
+            {
+                var controle = i.Entity as ControleVersao;
+                controle.AlteradoPor = _currentUserService.GetUser();
+                controle.AlteradoEm = data;
+                i.Property(nameof(controle.CriadoPor)).IsModified = false;
+                i.Property(nameof(controle.CriadoEm)).IsModified = false;
+                i.Property(nameof(controle.Ativo)).IsModified = false;
+            }
+            foreach (var i in ChangeTracker.Entries().Where(p => p.State == EntityState.Deleted && p.Entity is ControleVersao))
+            {
+                var controle = i.Entity as ControleVersao;
+                controle.AlteradoPor = _currentUserService.GetUser();
+                controle.AlteradoEm = data;
+                i.Property(nameof(controle.CriadoPor)).IsModified = false;
+                i.Property(nameof(controle.CriadoEm)).IsModified = false;
+                i.Property(nameof(controle.Ativo)).IsModified = false;
+            }
+
+            return base.SaveChangesAsync(cancellationToken);
+        }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -71,12 +113,84 @@ namespace Gerente.Infra.Data.Context
             builder.ApplyConfiguration(new TelefoneConfiguration());
             builder.ApplyConfiguration(new UsuarioConfiguration());
 
-            builder.Entity<IdentityRole>().HasData(new IdentityRole
+            var role = new IdentityRole
             {
                 Id = Guid.NewGuid().ToString(),
                 Name = "Administrador",
                 NormalizedName = "ADMINISTRADOR",
-                ConcurrencyStamp = DateTime.Now.ToString("yyyyMMddHHmmssffff")
+                ConcurrencyStamp = Guid.NewGuid().ToString()
+            };
+
+            builder.Entity<IdentityRole>().HasData(role);
+
+            var lista = this.RetornaTabelas();
+            int id = 0;
+            foreach (var i in lista)
+            {
+                id++;
+                builder.Entity<IdentityRoleClaim<string>>().HasData(new IdentityRoleClaim<string>
+                {
+                    Id = id,
+                    ClaimType = $"{i}View",
+                    ClaimValue = "false",
+                    RoleId = role.Id
+                });
+        
+                id++;
+                builder.Entity<IdentityRoleClaim<string>>().HasData(new IdentityRoleClaim<string>
+                {
+                    Id = id,
+                    ClaimType = $"{i}Add",
+                    ClaimValue = "false",
+                    RoleId = role.Id
+                });
+
+                id++;
+                builder.Entity<IdentityRoleClaim<string>>().HasData(new IdentityRoleClaim<string>
+                {
+                    Id = id,
+                    ClaimType = $"{i}Edit",
+                    ClaimValue = "false",
+                    RoleId = role.Id
+                });
+
+                id++;
+                builder.Entity<IdentityRoleClaim<string>>().HasData(new IdentityRoleClaim<string>
+                {
+                    Id = id,
+                    ClaimType = $"{i}Delete",
+                    ClaimValue = "false",
+                    RoleId = role.Id
+                });
+
+            }
+
+            var user = new Usuario
+            {
+                Id = Guid.NewGuid().ToString(),
+                NomeCompleto = "Fábio Salomão Silva Vogth",
+                Email = "fabio@arquivarnet.com.br",
+                UserName = "fabio@arquivarnet.com.br",
+                Matricula = "123456",
+                Cpf = "65788974291",
+                DataNascimento = Convert.ToDateTime("08/02/1981"),
+                SecretariaId = 1,
+                SetorId = 1,
+                Foto = "https://fundhacre.blob.core.windows.net/avatar/masculino01.png",
+                FotoExtensao = ".png",
+                Sexo = "Indefinido",
+                EmailConfirmed = true,
+                ConcurrencyStamp = Guid.NewGuid().ToString(),
+                NormalizedEmail = "FABIO@ARQUIVARNET.COM.BR"
+            };
+            var ph = new PasswordHasher<Usuario>();
+            user.PasswordHash = ph.HashPassword(user, user.Cpf);
+            builder.Entity<Usuario>().HasData(user);
+
+            builder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
+            {
+                RoleId = role.Id,
+                UserId = user.Id
             });
 
         }

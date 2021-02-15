@@ -37,6 +37,7 @@ namespace Gerente.Infra.IoC
                 .AddEntityFrameworkStores<DataDbContext>();
 
             services.AddTransient<IEmailSender, EmailSender>();
+            services.AddTransient<ICurrentUserService, CurrentUserService>();
 
             services.AddScoped<IAccountRepository, AccountRepository>();
             services.AddScoped<IAditivoRepository, AditivoRepository>();

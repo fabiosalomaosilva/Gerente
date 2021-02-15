@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.Extensions.Configuration;
 using SendGrid;
@@ -34,6 +35,25 @@ namespace Gerente.Infra.Data.Services
             msg.SetClickTracking(false, false);
 
             return client.SendEmailAsync(msg);
+        }
+    }
+
+    public interface ICurrentUserService
+    {
+        string GetUser();
+    }
+
+    public class CurrentUserService : ICurrentUserService
+    {
+        private readonly IHttpContextAccessor _contextAccessor;
+
+        public CurrentUserService(IHttpContextAccessor contextAccessor)
+        {
+            _contextAccessor = contextAccessor;
+        }
+        public string GetUser()
+        {
+            return _contextAccessor.HttpContext.User.Identity.Name;
         }
     }
 }

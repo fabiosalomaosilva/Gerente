@@ -420,10 +420,10 @@ namespace Gerente.Infra.Data.Migrations
                         new
                         {
                             Id = 1,
-                            AlteradoEm = new DateTime(2021, 2, 15, 13, 6, 6, 954, DateTimeKind.Local).AddTicks(2668),
+                            AlteradoEm = new DateTime(2021, 2, 15, 15, 49, 22, 847, DateTimeKind.Local).AddTicks(8886),
                             AlteradoPor = "admin",
                             Ativo = true,
-                            CriadoEm = new DateTime(2021, 2, 15, 13, 6, 6, 952, DateTimeKind.Local).AddTicks(1848),
+                            CriadoEm = new DateTime(2021, 2, 15, 15, 49, 22, 846, DateTimeKind.Local).AddTicks(3989),
                             CriadoPor = "admin",
                             Nome = "Acre",
                             Uf = "AC"
@@ -651,10 +651,10 @@ namespace Gerente.Infra.Data.Migrations
                         new
                         {
                             Id = 1,
-                            AlteradoEm = new DateTime(2021, 2, 15, 13, 6, 6, 966, DateTimeKind.Local).AddTicks(5454),
+                            AlteradoEm = new DateTime(2021, 2, 15, 15, 49, 22, 857, DateTimeKind.Local).AddTicks(2267),
                             AlteradoPor = "admin",
                             Ativo = true,
-                            CriadoEm = new DateTime(2021, 2, 15, 13, 6, 6, 966, DateTimeKind.Local).AddTicks(5420),
+                            CriadoEm = new DateTime(2021, 2, 15, 15, 49, 22, 857, DateTimeKind.Local).AddTicks(2249),
                             CriadoPor = "admin",
                             EstadoId = 1,
                             Nome = "Rio Branco"
@@ -930,12 +930,12 @@ namespace Gerente.Infra.Data.Migrations
                         new
                         {
                             Id = 1,
-                            AlteradoEm = new DateTime(2021, 2, 15, 13, 6, 6, 983, DateTimeKind.Local).AddTicks(1437),
+                            AlteradoEm = new DateTime(2021, 2, 15, 15, 49, 22, 869, DateTimeKind.Local).AddTicks(4543),
                             AlteradoPor = "admin",
                             Ativo = true,
                             Bairro = "Centro",
                             Cep = "69900000",
-                            CriadoEm = new DateTime(2021, 2, 15, 13, 6, 6, 983, DateTimeKind.Local).AddTicks(1411),
+                            CriadoEm = new DateTime(2021, 2, 15, 15, 49, 22, 869, DateTimeKind.Local).AddTicks(4524),
                             CriadoPor = "admin",
                             EstadoId = 1,
                             Logradouro = "Rua Benjamim Constant",
@@ -992,10 +992,10 @@ namespace Gerente.Infra.Data.Migrations
                         new
                         {
                             Id = 1,
-                            AlteradoEm = new DateTime(2021, 2, 15, 13, 6, 6, 985, DateTimeKind.Local).AddTicks(8227),
+                            AlteradoEm = new DateTime(2021, 2, 15, 15, 49, 22, 871, DateTimeKind.Local).AddTicks(2055),
                             AlteradoPor = "admin",
                             Ativo = true,
-                            CriadoEm = new DateTime(2021, 2, 15, 13, 6, 6, 985, DateTimeKind.Local).AddTicks(8196),
+                            CriadoEm = new DateTime(2021, 2, 15, 15, 49, 22, 871, DateTimeKind.Local).AddTicks(2048),
                             CriadoPor = "admin",
                             Email = "gerenciacomplexo@gmail.com",
                             Nome = "Complexo Regulador Estadual",
@@ -1088,8 +1088,8 @@ namespace Gerente.Infra.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "ef26c2e9-509a-46cf-8436-d84b7d69bbc8",
-                            ConcurrencyStamp = "202102151306070759",
+                            Id = "4f2a91a1-df68-4566-9e8f-7d387a89bffd",
+                            ConcurrencyStamp = "daa325fd-78a0-4ae1-a574-142d9dfda068",
                             Name = "Administrador",
                             NormalizedName = "ADMINISTRADOR"
                         });
@@ -1117,6 +1117,484 @@ namespace Gerente.Infra.Data.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetRoleClaims");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ClaimType = "AditivosView",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ClaimType = "AditivosAdd",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ClaimType = "AditivosEdit",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ClaimType = "AditivosDelete",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            ClaimType = "AgendamentosView",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            ClaimType = "AgendamentosAdd",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            ClaimType = "AgendamentosEdit",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            ClaimType = "AgendamentosDelete",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            ClaimType = "AuditoriasView",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            ClaimType = "AuditoriasAdd",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            ClaimType = "AuditoriasEdit",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            ClaimType = "AuditoriasDelete",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            ClaimType = "CargosView",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            ClaimType = "CargosAdd",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            ClaimType = "CargosEdit",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            ClaimType = "CargosDelete",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            ClaimType = "ContratosView",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            ClaimType = "ContratosAdd",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            ClaimType = "ContratosEdit",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            ClaimType = "ContratosDelete",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            ClaimType = "DocumentosView",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            ClaimType = "DocumentosAdd",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            ClaimType = "DocumentosEdit",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            ClaimType = "DocumentosDelete",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 25,
+                            ClaimType = "EspecialidadesView",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 26,
+                            ClaimType = "EspecialidadesAdd",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            ClaimType = "EspecialidadesEdit",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 28,
+                            ClaimType = "EspecialidadesDelete",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 29,
+                            ClaimType = "EstadosView",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 30,
+                            ClaimType = "EstadosAdd",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 31,
+                            ClaimType = "EstadosEdit",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 32,
+                            ClaimType = "EstadosDelete",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 33,
+                            ClaimType = "FilaProcedimentosView",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 34,
+                            ClaimType = "FilaProcedimentosAdd",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 35,
+                            ClaimType = "FilaProcedimentosEdit",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 36,
+                            ClaimType = "FilaProcedimentosDelete",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 37,
+                            ClaimType = "LocalProcedimentosView",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 38,
+                            ClaimType = "LocalProcedimentosAdd",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 39,
+                            ClaimType = "LocalProcedimentosEdit",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 40,
+                            ClaimType = "LocalProcedimentosDelete",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 41,
+                            ClaimType = "MedicosView",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 42,
+                            ClaimType = "MedicosAdd",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 43,
+                            ClaimType = "MedicosEdit",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 44,
+                            ClaimType = "MedicosDelete",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 45,
+                            ClaimType = "MunicipiosView",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 46,
+                            ClaimType = "MunicipiosAdd",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 47,
+                            ClaimType = "MunicipiosEdit",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 48,
+                            ClaimType = "MunicipiosDelete",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 49,
+                            ClaimType = "PessoasView",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 50,
+                            ClaimType = "PessoasAdd",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 51,
+                            ClaimType = "PessoasEdit",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 52,
+                            ClaimType = "PessoasDelete",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 53,
+                            ClaimType = "ProcedimentosView",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 54,
+                            ClaimType = "ProcedimentosAdd",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 55,
+                            ClaimType = "ProcedimentosEdit",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 56,
+                            ClaimType = "ProcedimentosDelete",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 57,
+                            ClaimType = "SecretariasView",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 58,
+                            ClaimType = "SecretariasAdd",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 59,
+                            ClaimType = "SecretariasEdit",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 60,
+                            ClaimType = "SecretariasDelete",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 61,
+                            ClaimType = "SetoresView",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 62,
+                            ClaimType = "SetoresAdd",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 63,
+                            ClaimType = "SetoresEdit",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 64,
+                            ClaimType = "SetoresDelete",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 65,
+                            ClaimType = "TelefonesView",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 66,
+                            ClaimType = "TelefonesAdd",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 67,
+                            ClaimType = "TelefonesEdit",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        },
+                        new
+                        {
+                            Id = 68,
+                            ClaimType = "TelefonesDelete",
+                            ClaimValue = "false",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
@@ -1251,6 +1729,13 @@ namespace Gerente.Infra.Data.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "e1b6762c-0a6c-4724-ba3c-ba0564e4ef7e",
+                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -1327,15 +1812,16 @@ namespace Gerente.Infra.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "55d71fcc-a3fc-4d24-b6cd-bf6952464342",
+                            Id = "e1b6762c-0a6c-4724-ba3c-ba0564e4ef7e",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "bfd33931-ee21-48ee-b532-a766bb27a094",
+                            ConcurrencyStamp = "acb0ae18-dd0c-44cf-8dfb-71eb1de22151",
                             Email = "fabio@arquivarnet.com.br",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAEAACcQAAAAED13rEpYp7rdxoQg6tDriFWCshmK3GGeN/9OOPX7j0+J9AXtyyWW0SBEi0i6fndZcg==",
+                            NormalizedEmail = "FABIO@ARQUIVARNET.COM.BR",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKkHzSru9lji/fZlyihN6cHdZyZlio9PH2eJSNO48iuzAyzJY7z7WGgIcPPW1xCUpA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "9dc85133-13f6-4cb9-a706-9ea538cf0a57",
+                            SecurityStamp = "bffa88c1-1304-403a-92f8-330a17c4a4f8",
                             TwoFactorEnabled = false,
                             UserName = "fabio@arquivarnet.com.br",
                             Cpf = "65788974291",
