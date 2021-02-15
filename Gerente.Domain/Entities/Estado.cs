@@ -5,14 +5,8 @@ using System.Text.Json.Serialization;
 
 namespace Gerente.Domain.Entities
 {
-    public class Estado
+    public class Estado : ControleVersao
     {
-        public int Id { get; set; }
-        public string CriadoPor { get; set; }
-        public DateTime CriadoEm { get; set; }
-        public string AlteradoPor { get; set; }
-        public DateTime AlteradoEm { get; set; }
-        public bool Ativo { get; set; }
         public string Nome { get; set; }
         public string Uf { get; set; }
         [JsonIgnore]

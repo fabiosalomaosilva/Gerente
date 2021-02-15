@@ -1,4 +1,5 @@
-﻿using Gerente.Domain.Entities;
+﻿using System;
+using Gerente.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -13,6 +14,18 @@ namespace Gerente.Infra.Data.EntityConfiguration
             builder.Property(p => p.AlteradoPor).HasMaxLength(100);
             builder.Property(p => p.Nome).HasMaxLength(30).IsRequired();
             builder.Property(p => p.Uf).HasMaxLength(2).IsRequired();
+
+            builder.HasData(new Estado
+            {
+                Id = 1,
+                CriadoPor = "admin",
+                AlteradoPor = "admin",
+                CriadoEm = DateTime.Now,
+                AlteradoEm = DateTime.Now,
+                Ativo = true,
+                Nome = "Acre",
+                Uf = "AC"
+            });
         }
     }
 }

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Gerente.Infra.Data.Migrations
 {
     [DbContext(typeof(DataDbContext))]
-    [Migration("20210210220028_Mig04")]
-    partial class Mig04
+    [Migration("20210215180607_Mig01")]
+    partial class Mig01
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -417,6 +417,19 @@ namespace Gerente.Infra.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Estado");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AlteradoEm = new DateTime(2021, 2, 15, 13, 6, 6, 954, DateTimeKind.Local).AddTicks(2668),
+                            AlteradoPor = "admin",
+                            Ativo = true,
+                            CriadoEm = new DateTime(2021, 2, 15, 13, 6, 6, 952, DateTimeKind.Local).AddTicks(1848),
+                            CriadoPor = "admin",
+                            Nome = "Acre",
+                            Uf = "AC"
+                        });
                 });
 
             modelBuilder.Entity("Gerente.Domain.Entities.FilaProcedimento", b =>
@@ -635,6 +648,19 @@ namespace Gerente.Infra.Data.Migrations
                     b.HasIndex("EstadoId");
 
                     b.ToTable("Municipio");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AlteradoEm = new DateTime(2021, 2, 15, 13, 6, 6, 966, DateTimeKind.Local).AddTicks(5454),
+                            AlteradoPor = "admin",
+                            Ativo = true,
+                            CriadoEm = new DateTime(2021, 2, 15, 13, 6, 6, 966, DateTimeKind.Local).AddTicks(5420),
+                            CriadoPor = "admin",
+                            EstadoId = 1,
+                            Nome = "Rio Branco"
+                        });
                 });
 
             modelBuilder.Entity("Gerente.Domain.Entities.Pessoa", b =>
@@ -700,7 +726,6 @@ namespace Gerente.Infra.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
@@ -902,6 +927,25 @@ namespace Gerente.Infra.Data.Migrations
                     b.HasIndex("MunicipioId");
 
                     b.ToTable("Secretaria");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AlteradoEm = new DateTime(2021, 2, 15, 13, 6, 6, 983, DateTimeKind.Local).AddTicks(1437),
+                            AlteradoPor = "admin",
+                            Ativo = true,
+                            Bairro = "Centro",
+                            Cep = "69900000",
+                            CriadoEm = new DateTime(2021, 2, 15, 13, 6, 6, 983, DateTimeKind.Local).AddTicks(1411),
+                            CriadoPor = "admin",
+                            EstadoId = 1,
+                            Logradouro = "Rua Benjamim Constant",
+                            MunicipioId = 1,
+                            Nome = "Secretaria de Estado de Saúde do Acre",
+                            NomeSimplificado = "SESACRE",
+                            Numero = "81"
+                        });
                 });
 
             modelBuilder.Entity("Gerente.Domain.Entities.Setor", b =>
@@ -929,7 +973,6 @@ namespace Gerente.Infra.Data.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
@@ -946,6 +989,20 @@ namespace Gerente.Infra.Data.Migrations
                     b.HasIndex("SecretariaId");
 
                     b.ToTable("Setor");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AlteradoEm = new DateTime(2021, 2, 15, 13, 6, 6, 985, DateTimeKind.Local).AddTicks(8227),
+                            AlteradoPor = "admin",
+                            Ativo = true,
+                            CriadoEm = new DateTime(2021, 2, 15, 13, 6, 6, 985, DateTimeKind.Local).AddTicks(8196),
+                            CriadoPor = "admin",
+                            Email = "gerenciacomplexo@gmail.com",
+                            Nome = "Complexo Regulador Estadual",
+                            SecretariaId = 1
+                        });
                 });
 
             modelBuilder.Entity("Gerente.Domain.Entities.Telefone", b =>
@@ -1029,6 +1086,15 @@ namespace Gerente.Infra.Data.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "ef26c2e9-509a-46cf-8436-d84b7d69bbc8",
+                            ConcurrencyStamp = "202102151306070759",
+                            Name = "Administrador",
+                            NormalizedName = "ADMINISTRADOR"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -1259,6 +1325,31 @@ namespace Gerente.Infra.Data.Migrations
                         .HasColumnType("nvarchar(20)");
 
                     b.HasDiscriminator().HasValue("Usuario");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "55d71fcc-a3fc-4d24-b6cd-bf6952464342",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "bfd33931-ee21-48ee-b532-a766bb27a094",
+                            Email = "fabio@arquivarnet.com.br",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            PasswordHash = "AQAAAAEAACcQAAAAED13rEpYp7rdxoQg6tDriFWCshmK3GGeN/9OOPX7j0+J9AXtyyWW0SBEi0i6fndZcg==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "9dc85133-13f6-4cb9-a706-9ea538cf0a57",
+                            TwoFactorEnabled = false,
+                            UserName = "fabio@arquivarnet.com.br",
+                            Cpf = "65788974291",
+                            DataNascimento = new DateTime(1981, 2, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Foto = "https://fundhacre.blob.core.windows.net/avatar/masculino01.png",
+                            FotoExtensao = ".png",
+                            Matricula = "123456",
+                            NomeCompleto = "Fábio Salomão Silva Vogth",
+                            SecretariaId = 1,
+                            SetorId = 1,
+                            Sexo = "Indefinido"
+                        });
                 });
 
             modelBuilder.Entity("Gerente.Domain.Entities.Aditivo", b =>

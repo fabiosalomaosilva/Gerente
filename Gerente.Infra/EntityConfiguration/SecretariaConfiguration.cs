@@ -20,13 +20,28 @@ namespace Gerente.Infra.Data.EntityConfiguration
             builder.Property(p => p.Cep).HasMaxLength(20);
             builder.HasOne(p => p.Estado).WithMany(b => b.Secretarias).HasForeignKey(p => p.EstadoId);
             builder.HasOne(p => p.Municipio).WithMany(b => b.Secretarias).HasForeignKey(p => p.MunicipioId);
-
             builder.Property(p => p.Nome).HasMaxLength(150).IsRequired();
             builder.Property(p => p.NomeSimplificado).HasMaxLength(30).IsRequired();
             builder.HasOne(p => p.Estado).WithMany(b => b.Secretarias).HasForeignKey(p => p.EstadoId);
             builder.HasOne(p => p.Municipio).WithMany(b => b.Secretarias).HasForeignKey(p => p.MunicipioId);
-
             
+            builder.HasData(new Secretaria
+            {
+                Id = 1,
+                CriadoPor = "admin",
+                AlteradoPor = "admin",
+                CriadoEm = DateTime.Now,
+                AlteradoEm = DateTime.Now,
+                Ativo = true,
+                Nome = "Secretaria de Estado de Saúde do Acre",
+                NomeSimplificado = "SESACRE",
+                Logradouro = "Rua Benjamim Constant",
+                Numero = "81",
+                Bairro = "Centro",
+                Cep = "69900000",
+                EstadoId = 1,
+                MunicipioId = 1
+            });
         }
     }
 }

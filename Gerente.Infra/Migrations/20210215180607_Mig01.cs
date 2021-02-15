@@ -81,12 +81,12 @@ namespace Gerente.Infra.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Nome = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     CriadoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     CriadoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
                     AlteradoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     AlteradoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Ativo = table.Column<bool>(type: "bit", nullable: false),
-                    Nome = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false)
+                    Ativo = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -99,13 +99,13 @@ namespace Gerente.Infra.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Nome = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    Uf = table.Column<string>(type: "nvarchar(2)", maxLength: 2, nullable: false),
                     CriadoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     CriadoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
                     AlteradoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     AlteradoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Ativo = table.Column<bool>(type: "bit", nullable: false),
-                    Nome = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    Uf = table.Column<string>(type: "nvarchar(2)", maxLength: 2, nullable: false)
+                    Ativo = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -224,16 +224,16 @@ namespace Gerente.Infra.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CriadoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    CriadoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    AlteradoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    AlteradoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Ativo = table.Column<bool>(type: "bit", nullable: false),
                     Nome = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     NaturezaProcedimento = table.Column<int>(type: "int", nullable: false),
                     EspecialidadeId = table.Column<int>(type: "int", nullable: false),
                     DoisMembros = table.Column<bool>(type: "bit", nullable: false),
-                    TempoDuracao = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    TempoDuracao = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    CriadoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    CriadoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    AlteradoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    AlteradoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Ativo = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -252,13 +252,13 @@ namespace Gerente.Infra.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Nome = table.Column<string>(type: "nvarchar(80)", maxLength: 80, nullable: false),
+                    EstadoId = table.Column<int>(type: "int", nullable: false),
                     CriadoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     CriadoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
                     AlteradoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     AlteradoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Ativo = table.Column<bool>(type: "bit", nullable: false),
-                    Nome = table.Column<string>(type: "nvarchar(80)", maxLength: 80, nullable: false),
-                    EstadoId = table.Column<int>(type: "int", nullable: false)
+                    Ativo = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -277,11 +277,6 @@ namespace Gerente.Infra.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CriadoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    CriadoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    AlteradoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    AlteradoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Ativo = table.Column<bool>(type: "bit", nullable: false),
                     Nome = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     Logradouro = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     Numero = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
@@ -289,7 +284,12 @@ namespace Gerente.Infra.Data.Migrations
                     Complemento = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     Cep = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
                     EstadoId = table.Column<int>(type: "int", nullable: false),
-                    MunicipioId = table.Column<int>(type: "int", nullable: false)
+                    MunicipioId = table.Column<int>(type: "int", nullable: false),
+                    CriadoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    CriadoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    AlteradoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    AlteradoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Ativo = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -314,11 +314,6 @@ namespace Gerente.Infra.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CriadoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    CriadoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    AlteradoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    AlteradoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Ativo = table.Column<bool>(type: "bit", nullable: false),
                     Nome = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     NomeSimplificado = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     Logradouro = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
@@ -327,7 +322,12 @@ namespace Gerente.Infra.Data.Migrations
                     Complemento = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     Cep = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
                     EstadoId = table.Column<int>(type: "int", nullable: false),
-                    MunicipioId = table.Column<int>(type: "int", nullable: false)
+                    MunicipioId = table.Column<int>(type: "int", nullable: false),
+                    CriadoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    CriadoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    AlteradoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    AlteradoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Ativo = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -352,13 +352,13 @@ namespace Gerente.Infra.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    LocalProcedimentoId = table.Column<int>(type: "int", nullable: false),
+                    Nome = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     CriadoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     CriadoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
                     AlteradoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     AlteradoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Ativo = table.Column<bool>(type: "bit", nullable: false),
-                    LocalProcedimentoId = table.Column<int>(type: "int", nullable: false),
-                    Nome = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false)
+                    Ativo = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -377,14 +377,14 @@ namespace Gerente.Infra.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    SecretariaId = table.Column<int>(type: "int", nullable: false),
+                    Nome = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     CriadoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     CriadoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
                     AlteradoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     AlteradoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Ativo = table.Column<bool>(type: "bit", nullable: false),
-                    SecretariaId = table.Column<int>(type: "int", nullable: false),
-                    Nome = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
+                    Ativo = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -403,14 +403,14 @@ namespace Gerente.Infra.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Nome = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SecretariaId = table.Column<int>(type: "int", nullable: false),
+                    SetorId = table.Column<int>(type: "int", nullable: false),
                     CriadoPor = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CriadoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
                     AlteradoPor = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AlteradoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Ativo = table.Column<bool>(type: "bit", nullable: false),
-                    Nome = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SecretariaId = table.Column<int>(type: "int", nullable: false),
-                    SetorId = table.Column<int>(type: "int", nullable: false)
+                    Ativo = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -435,17 +435,17 @@ namespace Gerente.Infra.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CriadoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    CriadoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    AlteradoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    AlteradoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Ativo = table.Column<bool>(type: "bit", nullable: false),
                     Nome = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     Url = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     PessoaId = table.Column<int>(type: "int", nullable: false),
                     ContratoId = table.Column<int>(type: "int", nullable: false),
                     AditivoId = table.Column<int>(type: "int", nullable: false),
-                    TipoDocumento = table.Column<int>(type: "int", nullable: false)
+                    TipoDocumento = table.Column<int>(type: "int", nullable: false),
+                    CriadoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    CriadoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    AlteradoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    AlteradoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Ativo = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -458,16 +458,16 @@ namespace Gerente.Infra.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CriadoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    CriadoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    AlteradoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    AlteradoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Ativo = table.Column<bool>(type: "bit", nullable: false),
                     ContratoId = table.Column<int>(type: "int", nullable: false),
                     Numero = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
                     DataAditivo = table.Column<DateTime>(type: "datetime2", nullable: false),
                     MesesAcrescidos = table.Column<int>(type: "int", nullable: false),
-                    Objeto = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false)
+                    Objeto = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
+                    CriadoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    CriadoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    AlteradoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    AlteradoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Ativo = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -480,11 +480,6 @@ namespace Gerente.Infra.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CriadoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    CriadoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    AlteradoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    AlteradoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Ativo = table.Column<bool>(type: "bit", nullable: false),
                     Logradouro = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     Numero = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Bairro = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
@@ -495,7 +490,7 @@ namespace Gerente.Infra.Data.Migrations
                     NaturezaJuridica = table.Column<int>(type: "int", nullable: false),
                     NomeCompleto = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     NomeFantasia = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     DataNascimento = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Cpf = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
                     Cnpj = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
@@ -507,7 +502,12 @@ namespace Gerente.Infra.Data.Migrations
                     AcompanhanteId = table.Column<int>(type: "int", nullable: false),
                     RepresentanteId = table.Column<int>(type: "int", nullable: false),
                     Matricula = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: true),
-                    ContratoId = table.Column<int>(type: "int", nullable: true)
+                    ContratoId = table.Column<int>(type: "int", nullable: true),
+                    CriadoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    CriadoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    AlteradoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    AlteradoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Ativo = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -556,11 +556,6 @@ namespace Gerente.Infra.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CriadoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    CriadoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    AlteradoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    AlteradoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Ativo = table.Column<bool>(type: "bit", nullable: false),
                     TipoInstrumento = table.Column<int>(type: "int", nullable: false),
                     Numero = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
                     FornecedorId = table.Column<int>(type: "int", nullable: false),
@@ -570,7 +565,12 @@ namespace Gerente.Infra.Data.Migrations
                     NumeroLicitacao = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     DataContrato = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DataFinalVigencia = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Objeto = table.Column<string>(type: "nvarchar(4000)", maxLength: 4000, nullable: false)
+                    Objeto = table.Column<string>(type: "nvarchar(4000)", maxLength: 4000, nullable: false),
+                    CriadoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    CriadoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    AlteradoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    AlteradoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Ativo = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -595,11 +595,6 @@ namespace Gerente.Infra.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CriadoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    CriadoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    AlteradoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    AlteradoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Ativo = table.Column<bool>(type: "bit", nullable: false),
                     PacienteId = table.Column<int>(type: "int", nullable: false),
                     EspecialidadeId = table.Column<int>(type: "int", nullable: false),
                     ProcedimentoId = table.Column<int>(type: "int", nullable: false),
@@ -610,7 +605,12 @@ namespace Gerente.Infra.Data.Migrations
                     LadoDireito = table.Column<bool>(type: "bit", nullable: false),
                     LadoEsquerdo = table.Column<bool>(type: "bit", nullable: false),
                     Finalizado = table.Column<bool>(type: "bit", nullable: false),
-                    Observacoes = table.Column<string>(type: "nvarchar(2000)", maxLength: 2000, nullable: true)
+                    Observacoes = table.Column<string>(type: "nvarchar(2000)", maxLength: 2000, nullable: true),
+                    CriadoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    CriadoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    AlteradoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    AlteradoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Ativo = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -653,17 +653,17 @@ namespace Gerente.Infra.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CriadoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    CriadoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    AlteradoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    AlteradoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Ativo = table.Column<bool>(type: "bit", nullable: false),
-                    PessoaResponsavel = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
+                    PessoaResponsavel = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: true),
                     TipoTelefone = table.Column<int>(type: "int", nullable: false),
                     Numero = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     SecretariaId = table.Column<int>(type: "int", nullable: false),
                     SetorId = table.Column<int>(type: "int", nullable: false),
-                    PessoaId = table.Column<int>(type: "int", nullable: false)
+                    PessoaId = table.Column<int>(type: "int", nullable: false),
+                    CriadoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    CriadoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    AlteradoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    AlteradoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Ativo = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -694,11 +694,6 @@ namespace Gerente.Infra.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CriadoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    CriadoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    AlteradoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    AlteradoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Ativo = table.Column<bool>(type: "bit", nullable: false),
                     FilaProcedimentoId = table.Column<int>(type: "int", nullable: false),
                     Titulo = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     DataInicio = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -710,7 +705,12 @@ namespace Gerente.Infra.Data.Migrations
                     NomePessoaConfirmacao = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     Realizado = table.Column<bool>(type: "bit", nullable: false),
                     Descricao = table.Column<string>(type: "nvarchar(4000)", maxLength: 4000, nullable: true),
-                    Cancelado = table.Column<bool>(type: "bit", nullable: false)
+                    Cancelado = table.Column<bool>(type: "bit", nullable: false),
+                    CriadoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    CriadoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    AlteradoPor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    AlteradoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Ativo = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -722,6 +722,36 @@ namespace Gerente.Infra.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.NoAction);
                 });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[] { "ef26c2e9-509a-46cf-8436-d84b7d69bbc8", "202102151306070759", "Administrador", "ADMINISTRADOR" });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Cpf", "DataNascimento", "Discriminator", "Email", "EmailConfirmed", "Foto", "FotoExtensao", "LockoutEnabled", "LockoutEnd", "Matricula", "NomeCompleto", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "Secretaria", "SecretariaId", "SecurityStamp", "Setor", "SetorId", "Sexo", "TwoFactorEnabled", "UserName" },
+                values: new object[] { "55d71fcc-a3fc-4d24-b6cd-bf6952464342", 0, "bfd33931-ee21-48ee-b532-a766bb27a094", "65788974291", new DateTime(1981, 2, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), "Usuario", "fabio@arquivarnet.com.br", true, "https://fundhacre.blob.core.windows.net/avatar/masculino01.png", ".png", false, null, "123456", "Fábio Salomão Silva Vogth", null, null, "AQAAAAEAACcQAAAAED13rEpYp7rdxoQg6tDriFWCshmK3GGeN/9OOPX7j0+J9AXtyyWW0SBEi0i6fndZcg==", null, false, null, 1, "9dc85133-13f6-4cb9-a706-9ea538cf0a57", null, 1, "Indefinido", false, "fabio@arquivarnet.com.br" });
+
+            migrationBuilder.InsertData(
+                table: "Estado",
+                columns: new[] { "Id", "AlteradoEm", "AlteradoPor", "Ativo", "CriadoEm", "CriadoPor", "Nome", "Uf" },
+                values: new object[] { 1, new DateTime(2021, 2, 15, 13, 6, 6, 954, DateTimeKind.Local).AddTicks(2668), "admin", true, new DateTime(2021, 2, 15, 13, 6, 6, 952, DateTimeKind.Local).AddTicks(1848), "admin", "Acre", "AC" });
+
+            migrationBuilder.InsertData(
+                table: "Municipio",
+                columns: new[] { "Id", "AlteradoEm", "AlteradoPor", "Ativo", "CriadoEm", "CriadoPor", "EstadoId", "Nome" },
+                values: new object[] { 1, new DateTime(2021, 2, 15, 13, 6, 6, 966, DateTimeKind.Local).AddTicks(5454), "admin", true, new DateTime(2021, 2, 15, 13, 6, 6, 966, DateTimeKind.Local).AddTicks(5420), "admin", 1, "Rio Branco" });
+
+            migrationBuilder.InsertData(
+                table: "Secretaria",
+                columns: new[] { "Id", "AlteradoEm", "AlteradoPor", "Ativo", "Bairro", "Cep", "Complemento", "CriadoEm", "CriadoPor", "EstadoId", "Logradouro", "MunicipioId", "Nome", "NomeSimplificado", "Numero" },
+                values: new object[] { 1, new DateTime(2021, 2, 15, 13, 6, 6, 983, DateTimeKind.Local).AddTicks(1437), "admin", true, "Centro", "69900000", null, new DateTime(2021, 2, 15, 13, 6, 6, 983, DateTimeKind.Local).AddTicks(1411), "admin", 1, "Rua Benjamim Constant", 1, "Secretaria de Estado de Saúde do Acre", "SESACRE", "81" });
+
+            migrationBuilder.InsertData(
+                table: "Setor",
+                columns: new[] { "Id", "AlteradoEm", "AlteradoPor", "Ativo", "CriadoEm", "CriadoPor", "Email", "Nome", "SecretariaId" },
+                values: new object[] { 1, new DateTime(2021, 2, 15, 13, 6, 6, 985, DateTimeKind.Local).AddTicks(8227), "admin", true, new DateTime(2021, 2, 15, 13, 6, 6, 985, DateTimeKind.Local).AddTicks(8196), "admin", "gerenciacomplexo@gmail.com", "Complexo Regulador Estadual", 1 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Aditivo_ContratoId",

@@ -1,4 +1,6 @@
-﻿using Gerente.Infra.Data.Models;
+﻿using System;
+using Gerente.Infra.Data.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -18,6 +20,27 @@ namespace Gerente.Infra.Data.EntityConfiguration
             builder.Property(p => p.SecretariaId).IsRequired();
             builder.Property(p => p.Setor).HasMaxLength(100);
             builder.Property(p => p.SetorId).IsRequired();
+
+            var user = new Usuario
+            {
+                Id = Guid.NewGuid().ToString(),
+                NomeCompleto = "Fábio Salomão Silva Vogth",
+                Email = "fabio@arquivarnet.com.br",
+                UserName = "fabio@arquivarnet.com.br",
+                Matricula = "123456",
+                Cpf = "65788974291",
+                DataNascimento = Convert.ToDateTime("08/02/1981"),
+                SecretariaId = 1,
+                SetorId = 1,
+                Foto = "https://fundhacre.blob.core.windows.net/avatar/masculino01.png",
+                FotoExtensao = ".png",
+                Sexo = "Indefinido",
+                EmailConfirmed = true
+            };
+            var ph = new PasswordHasher<Usuario>();
+            user.PasswordHash = ph.HashPassword(user, user.Cpf);
+            builder.HasData(user);
+
         }
     }
 }

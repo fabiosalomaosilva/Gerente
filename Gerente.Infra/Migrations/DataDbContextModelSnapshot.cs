@@ -420,10 +420,10 @@ namespace Gerente.Infra.Data.Migrations
                         new
                         {
                             Id = 1,
-                            AlteradoEm = new DateTime(2021, 2, 12, 12, 45, 22, 745, DateTimeKind.Local).AddTicks(7989),
+                            AlteradoEm = new DateTime(2021, 2, 15, 13, 6, 6, 954, DateTimeKind.Local).AddTicks(2668),
                             AlteradoPor = "admin",
                             Ativo = true,
-                            CriadoEm = new DateTime(2021, 2, 12, 12, 45, 22, 744, DateTimeKind.Local).AddTicks(1614),
+                            CriadoEm = new DateTime(2021, 2, 15, 13, 6, 6, 952, DateTimeKind.Local).AddTicks(1848),
                             CriadoPor = "admin",
                             Nome = "Acre",
                             Uf = "AC"
@@ -651,10 +651,10 @@ namespace Gerente.Infra.Data.Migrations
                         new
                         {
                             Id = 1,
-                            AlteradoEm = new DateTime(2021, 2, 12, 12, 45, 22, 748, DateTimeKind.Local).AddTicks(3659),
+                            AlteradoEm = new DateTime(2021, 2, 15, 13, 6, 6, 966, DateTimeKind.Local).AddTicks(5454),
                             AlteradoPor = "admin",
                             Ativo = true,
-                            CriadoEm = new DateTime(2021, 2, 12, 12, 45, 22, 748, DateTimeKind.Local).AddTicks(2824),
+                            CriadoEm = new DateTime(2021, 2, 15, 13, 6, 6, 966, DateTimeKind.Local).AddTicks(5420),
                             CriadoPor = "admin",
                             EstadoId = 1,
                             Nome = "Rio Branco"
@@ -930,12 +930,12 @@ namespace Gerente.Infra.Data.Migrations
                         new
                         {
                             Id = 1,
-                            AlteradoEm = new DateTime(2021, 2, 12, 12, 45, 22, 749, DateTimeKind.Local).AddTicks(30),
+                            AlteradoEm = new DateTime(2021, 2, 15, 13, 6, 6, 983, DateTimeKind.Local).AddTicks(1437),
                             AlteradoPor = "admin",
                             Ativo = true,
                             Bairro = "Centro",
                             Cep = "69900000",
-                            CriadoEm = new DateTime(2021, 2, 12, 12, 45, 22, 748, DateTimeKind.Local).AddTicks(9362),
+                            CriadoEm = new DateTime(2021, 2, 15, 13, 6, 6, 983, DateTimeKind.Local).AddTicks(1411),
                             CriadoPor = "admin",
                             EstadoId = 1,
                             Logradouro = "Rua Benjamim Constant",
@@ -992,10 +992,10 @@ namespace Gerente.Infra.Data.Migrations
                         new
                         {
                             Id = 1,
-                            AlteradoEm = new DateTime(2021, 2, 12, 12, 45, 22, 749, DateTimeKind.Local).AddTicks(9661),
+                            AlteradoEm = new DateTime(2021, 2, 15, 13, 6, 6, 985, DateTimeKind.Local).AddTicks(8227),
                             AlteradoPor = "admin",
                             Ativo = true,
-                            CriadoEm = new DateTime(2021, 2, 12, 12, 45, 22, 749, DateTimeKind.Local).AddTicks(8991),
+                            CriadoEm = new DateTime(2021, 2, 15, 13, 6, 6, 985, DateTimeKind.Local).AddTicks(8196),
                             CriadoPor = "admin",
                             Email = "gerenciacomplexo@gmail.com",
                             Nome = "Complexo Regulador Estadual",
@@ -1084,6 +1084,15 @@ namespace Gerente.Infra.Data.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "ef26c2e9-509a-46cf-8436-d84b7d69bbc8",
+                            ConcurrencyStamp = "202102151306070759",
+                            Name = "Administrador",
+                            NormalizedName = "ADMINISTRADOR"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -1318,15 +1327,15 @@ namespace Gerente.Infra.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "7fbb0d73-ec4b-4e73-ab8e-677d182839b6",
+                            Id = "55d71fcc-a3fc-4d24-b6cd-bf6952464342",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b3600bb1-cd42-4998-b635-38878ef32e4a",
+                            ConcurrencyStamp = "bfd33931-ee21-48ee-b532-a766bb27a094",
                             Email = "fabio@arquivarnet.com.br",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAEAACcQAAAAEFgmiFClWXRobSvg0eZ0+jdrdHX3XLNbEsVVq0G89sqmLcrfa1APmlbmOuGfDsuwyg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAED13rEpYp7rdxoQg6tDriFWCshmK3GGeN/9OOPX7j0+J9AXtyyWW0SBEi0i6fndZcg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "efa731be-dd57-4b44-bb4d-0527ec82fbd7",
+                            SecurityStamp = "9dc85133-13f6-4cb9-a706-9ea538cf0a57",
                             TwoFactorEnabled = false,
                             UserName = "fabio@arquivarnet.com.br",
                             Cpf = "65788974291",
