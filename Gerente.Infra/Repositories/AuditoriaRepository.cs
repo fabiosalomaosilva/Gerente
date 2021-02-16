@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Gerente.Domain.Entities;
 using Gerente.Domain.Enums;
 using Gerente.Infra.Data.Context;

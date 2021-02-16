@@ -30,7 +30,8 @@ namespace Gerente.Api.Controllers
             var result = await _service.Login(user);
             if (result.Succeeded == false)
                 return NotFound(new { message = result.Error});
-            return _tokenService.AddToken(result.Usuario);
+            var claims = await _service.GetClaims(result.Role);
+            return _tokenService.AddToken(result.Usuario, claims);
         }
 
         [HttpPost]
@@ -43,7 +44,7 @@ namespace Gerente.Api.Controllers
             user.Foto = DefinirImagenService.SelecionarAvatar(sexo);
             user.FotoExtensao = ".png";
 
-            var result = await _service.Register(user);
+            var result = await _service.Register(user, user.NomeRole);
             if (result == false)
                 return NotFound(new { message = "Ocorreu um erro ao salvar o usuário" });
             return Ok(user);

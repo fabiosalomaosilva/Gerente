@@ -19,11 +19,13 @@ namespace Gerente.Application.ViewModels
         public string Secretaria { get; set; }
         public int SetorId { get; set; }
         public string Setor { get; set; }
+        public string NomeRole { get; set; }
     }
 
     public class UserLoginResultModel
     {
         public UsuarioViewModel Usuario { get; set; }
+        public RoleViewModel Role { get; set; }
         public bool Succeeded { get; set; }
         public string Error { get; set; }
     }

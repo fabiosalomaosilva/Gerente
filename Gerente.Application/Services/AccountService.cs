@@ -22,7 +22,8 @@ namespace Gerente.Application.Services
         {
             var obj = _mapper.Map<UserLogin>(user);
             var result = await _service.LoginAsync(obj);
-            return _mapper.Map<UserLoginResultModel>(result);
+            var userResult = _mapper.Map<UserLoginResultModel>(result);
+            return userResult;
         }
 
         public void Logout()
@@ -36,9 +37,9 @@ namespace Gerente.Application.Services
             return _mapper.Map<IEnumerable<UsuarioViewModel>>(lista);
         }
 
-        public async Task<bool> Register(UsuarioViewModel obj)
+        public async Task<bool> Register(UsuarioViewModel obj, string roleName)
         {
-            return await _service.RegisterAsync(_mapper.Map<User>(obj));
+            return await _service.RegisterAsync(_mapper.Map<User>(obj), roleName);
         }
 
         public void Edit(UsuarioViewModel obj)
@@ -65,5 +66,35 @@ namespace Gerente.Application.Services
         {
             _service.EnableUser(_mapper.Map<User>(obj));
         }
+
+        public void AddRole(RoleViewModel role)
+        {
+            _service.AddRole(_mapper.Map<Role>(role));
+        }
+
+        public void EditRole(RoleViewModel role)
+        {
+            _service.EditRole(_mapper.Map<Role>(role));
+        }
+
+        public void DeleteRole(RoleViewModel role)
+        {
+            _service.DeleteRole(_mapper.Map<Role>(role));
+        }
+
+        public async Task<IEnumerable<RoleClaimViewModel>> GetClaims(RoleViewModel role)
+        {
+            var lista = await _service.GetClaims(_mapper.Map<Role>(role));
+            return _mapper.Map<IEnumerable<RoleClaimViewModel>>(lista);
+        }
+
+        public void EditClaims(RoleViewModel role, IEnumerable<RoleClaimViewModel> claims)
+        {
+            var r = _mapper.Map<Role>(role);
+            var cs = _mapper.Map<IEnumerable<RoleClaim>>(claims);
+            _service.EditClaims(r, cs);
+        }
+
+
     }
 }
