@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Gerente.Domain.Entities;
 using Gerente.Domain.Interfaces;
@@ -16,43 +17,34 @@ namespace Gerente.Infra.Data.Repositories
         {
             _db = db;
         }
-        public async Task<IEnumerable<Estado>> Get()
+        public async Task<IEnumerable<Estado>> GetAsync()
         {
-            return await _db.Estados.ToListAsync();
+            return await _db.Estados.Where(p => p.Ativo).ToListAsync();
         }
 
-        public async Task<Estado> Get(int? id)
+        public async Task<Estado> GetAsync(int? id)
         {
             return await _db.Estados.FindAsync(id);
         }
 
-        public void Add(Estado obj, string nomeUsuario)
+        public async Task<Estado> AddAsync(Estado obj)
         {
-            var data = DateTime.Now;
-            obj.AlteradoEm = data;
-            obj.CriadoEm = data;
-            obj.AlteradoPor = nomeUsuario;
-            obj.CriadoPor = nomeUsuario;
-            obj.Ativo = true;
             _db.Add(obj);
-            _db.SaveChanges();
+            await _db.SaveChangesAsync();
+            return obj;
         }
 
-        public void Edit(Estado obj, string nomeUsuario)
+        public async Task EditAsync(Estado obj)
         {
-            obj.AlteradoEm = DateTime.Now;
-            obj.AlteradoPor = nomeUsuario;
             _db.Update(obj);
-            _db.SaveChanges();
+            await _db.SaveChangesAsync();
         }
 
-        public void Delete(Estado obj, string nomeUsuario)
+        public async Task DeleteAsync(Estado obj)
         {
             obj.Ativo = false;
-            obj.AlteradoEm = DateTime.Now;
-            obj.AlteradoPor = nomeUsuario;
             _db.Update(obj);
-            _db.SaveChanges();
+            await _db.SaveChangesAsync();
         }
     }
 }

@@ -26,31 +26,21 @@ namespace Gerente.Infra.Data.Repositories
             return await _db.Agendamentos.FindAsync(id);
         }
 
-        public void Add(Agendamento obj, string nomeUsuario)
+        public void Add(Agendamento obj)
         {
-            var data = DateTime.Now;
-            obj.AlteradoEm = data;
-            obj.CriadoEm = data;
-            obj.AlteradoPor = nomeUsuario;
-            obj.CriadoPor = nomeUsuario;
-            obj.Ativo = true;
             _db.Add(obj);
             _db.SaveChanges();
         }
 
-        public void Edit(Agendamento obj, string nomeUsuario)
+        public void Edit(Agendamento obj)
         {
-            obj.AlteradoEm = DateTime.Now;
-            obj.AlteradoPor = nomeUsuario;
             _db.Update(obj);
             _db.SaveChanges();
         }
 
-        public void Delete(Agendamento obj, string nomeUsuario)
+        public void Delete(Agendamento obj)
         {
             obj.Ativo = false;
-            obj.AlteradoEm = DateTime.Now;
-            obj.AlteradoPor = nomeUsuario;
             _db.Update(obj);
             _db.SaveChanges();
         }

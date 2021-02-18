@@ -26,31 +26,31 @@ namespace Gerente.Infra.Data.Repositories
             return await _db.Medicos.FindAsync(id);
         }
 
-        public void Add(Medico obj, string nomeUsuario)
+        public void Add(Medico obj)
         {
-            var data = DateTime.Now;
-            obj.AlteradoEm = data;
-            obj.CriadoEm = data;
-            obj.AlteradoPor = nomeUsuario;
-            obj.CriadoPor = nomeUsuario;
-            obj.Ativo = true;
+
+
+
+
+
+
             _db.Add(obj);
             _db.SaveChanges();
         }
 
-        public void Edit(Medico obj, string nomeUsuario)
+        public void Edit(Medico obj)
         {
             obj.AlteradoEm = DateTime.Now;
-            obj.AlteradoPor = nomeUsuario;
+
             _db.Update(obj);
             _db.SaveChanges();
         }
 
-        public void Delete(Medico obj, string nomeUsuario)
+        public void Delete(Medico obj)
         {
             obj.Ativo = false;
             obj.AlteradoEm = DateTime.Now;
-            obj.AlteradoPor = nomeUsuario;
+
             _db.Update(obj);
             _db.SaveChanges();
         }

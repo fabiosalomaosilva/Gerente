@@ -21,9 +21,9 @@ namespace Gerente.Infra.Data.EntityConfiguration
             builder.Property(p => p.Setor).HasMaxLength(100);
             builder.Property(p => p.SetorId).IsRequired();
 
-            
+
         }
     }
 
-   
+
 }

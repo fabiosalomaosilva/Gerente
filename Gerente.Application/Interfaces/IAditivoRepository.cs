@@ -6,10 +6,10 @@ namespace Gerente.Application.Interfaces
 {
     public interface IAditivoService
     {
-        Task<IEnumerable<AditivoViewModel>> Get();
-        Task<AditivoViewModel> Get(int? id);
-        void Add(AditivoViewModel obj, string nomeUsuario);
-        void Edit(AditivoViewModel obj, string nomeUsuario);
-        void Delete(int id, string nomeUsuario);
+        Task<IEnumerable<AditivoViewModel>> GetAsync();
+        Task<AditivoViewModel> GetAsync(int? id);
+        Task<AditivoViewModel> AddAsync(AditivoViewModel obj);
+        Task EditAsync(AditivoViewModel obj);
+        Task DeleteAsync(int id);
     }
 }

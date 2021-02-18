@@ -27,31 +27,31 @@ namespace Gerente.Infra.Data.Repositories
             return await _db.Secretarias.FindAsync(id);
         }
 
-        public void Add(Secretaria obj, string nomeUsuario)
+        public void Add(Secretaria obj)
         {
-            var data = DateTime.Now;
-            obj.AlteradoEm = data;
-            obj.CriadoEm = data;
-            obj.AlteradoPor = nomeUsuario;
-            obj.CriadoPor = nomeUsuario;
-            obj.Ativo = true;
+
+
+
+
+
+
             _db.Add(obj);
             _db.SaveChanges();
         }
 
-        public void Edit(Secretaria obj, string nomeUsuario)
+        public void Edit(Secretaria obj)
         {
             obj.AlteradoEm = DateTime.Now;
-            obj.AlteradoPor = nomeUsuario;
+
             _db.Update(obj);
             _db.SaveChanges();
         }
 
-        public void Delete(Secretaria obj, string nomeUsuario)
+        public void Delete(Secretaria obj)
         {
             obj.Ativo = false;
             obj.AlteradoEm = DateTime.Now;
-            obj.AlteradoPor = nomeUsuario;
+
             _db.Update(obj);
             _db.SaveChanges();
         }

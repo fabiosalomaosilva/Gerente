@@ -23,7 +23,31 @@ namespace Gerente.Api.Controllers
         [ClaimsAuth("EstadosView")]
         public async Task<IEnumerable<EstadoViewModel>> Get()
         {
-            return await _estadoService.Get();
+            return await _estadoService.GetAsync();
+        }
+
+        [HttpPost]
+        [ClaimsAuth("EstadosAdd")]
+        public async Task<IActionResult> Post(EstadoViewModel obj)
+        {
+            var objResult = await _estadoService.AddAsync(obj);
+            return Ok(objResult);
+        }
+
+        [HttpPut]
+        [ClaimsAuth("EstadosEdit")]
+        public async Task<IActionResult> Put(EstadoViewModel obj)
+        {
+            await _estadoService.EditAsync(obj);
+            return Ok();
+        }
+
+        [HttpDelete("id")]
+        [ClaimsAuth("EstadosDelete")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _estadoService.DeleteAsync(id);
+            return Ok("Registro excluído com sucesso");
         }
     }
 }

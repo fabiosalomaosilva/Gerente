@@ -8,8 +8,8 @@ namespace Gerente.Application.Interfaces
     {
         Task<IEnumerable<ServidorViewModel>> Get();
         Task<ServidorViewModel> Get(int? id);
-        void Add(ServidorViewModel obj, string nomeUsuario);
-        void Edit(ServidorViewModel obj, string nomeUsuario);
-        void Delete(int id, string nomeUsuario);
+        void Add(ServidorViewModel obj);
+        void Edit(ServidorViewModel obj);
+        void Delete(int id);
     }
 }

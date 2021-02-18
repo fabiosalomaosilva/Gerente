@@ -26,31 +26,31 @@ namespace Gerente.Infra.Data.Repositories
             return await _db.LocalProcedimentos.FindAsync(id);
         }
 
-        public void Add(LocalProcedimento obj, string nomeUsuario)
+        public void Add(LocalProcedimento obj)
         {
-            var data = DateTime.Now;
-            obj.AlteradoEm = data;
-            obj.CriadoEm = data;
-            obj.AlteradoPor = nomeUsuario;
-            obj.CriadoPor = nomeUsuario;
-            obj.Ativo = true;
+
+
+
+
+
+
             _db.Add(obj);
             _db.SaveChanges();
         }
 
-        public void Edit(LocalProcedimento obj, string nomeUsuario)
+        public void Edit(LocalProcedimento obj)
         {
             obj.AlteradoEm = DateTime.Now;
-            obj.AlteradoPor = nomeUsuario;
+
             _db.Update(obj);
             _db.SaveChanges();
         }
 
-        public void Delete(LocalProcedimento obj, string nomeUsuario)
+        public void Delete(LocalProcedimento obj)
         {
             obj.Ativo = false;
             obj.AlteradoEm = DateTime.Now;
-            obj.AlteradoPor = nomeUsuario;
+
             _db.Update(obj);
             _db.SaveChanges();
         }

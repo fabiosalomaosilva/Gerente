@@ -20,7 +20,7 @@ namespace Gerente.Infra.Data.EntityConfiguration
             builder.Property(p => p.Cep).HasMaxLength(20);
             builder.HasOne(p => p.Estado).WithMany(b => b.Pessoas).HasForeignKey(p => p.EstadoId);
             builder.HasOne(p => p.Municipio).WithMany(b => b.Pessoas).HasForeignKey(p => p.MunicipioId);
-            
+
             builder.Property(p => p.NomeCompleto).HasMaxLength(150).IsRequired();
             builder.Property(p => p.Email).HasMaxLength(100);
             builder.Property(p => p.DataNascimento);

@@ -24,7 +24,7 @@ namespace Gerente.Infra.Data.EntityConfiguration
             builder.Property(p => p.NomeSimplificado).HasMaxLength(30).IsRequired();
             builder.HasOne(p => p.Estado).WithMany(b => b.Secretarias).HasForeignKey(p => p.EstadoId);
             builder.HasOne(p => p.Municipio).WithMany(b => b.Secretarias).HasForeignKey(p => p.MunicipioId);
-            
+
             builder.HasData(new Secretaria
             {
                 Id = 1,

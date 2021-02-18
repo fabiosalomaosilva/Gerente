@@ -26,31 +26,21 @@ namespace Gerente.Infra.Data.Repositories
             return await _db.Cargos.FindAsync(id);
         }
 
-        public void Add(Cargo obj, string nomeUsuario)
+        public void Add(Cargo obj)
         {
-            var data = DateTime.Now;
-            obj.AlteradoEm = data;
-            obj.CriadoEm = data;
-            obj.AlteradoPor = nomeUsuario;
-            obj.CriadoPor = nomeUsuario;
-            obj.Ativo = true;
             _db.Add(obj);
             _db.SaveChanges();
         }
 
-        public void Edit(Cargo obj, string nomeUsuario)
+        public void Edit(Cargo obj)
         {
-            obj.AlteradoEm = DateTime.Now;
-            obj.AlteradoPor = nomeUsuario;
             _db.Update(obj);
             _db.SaveChanges();
         }
 
-        public void Delete(Cargo obj, string nomeUsuario)
+        public void Delete(Cargo obj)
         {
             obj.Ativo = false;
-            obj.AlteradoEm = DateTime.Now;
-            obj.AlteradoPor = nomeUsuario;
             _db.Update(obj);
             _db.SaveChanges();
         }

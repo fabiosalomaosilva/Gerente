@@ -26,7 +26,7 @@ namespace Gerente.Api.Controllers
         [HttpGet]
         public async Task<IEnumerable<AditivoViewModel>> Get()
         {
-            return await _aditivoService.Get();
+            return await _aditivoService.GetAsync();
         }
 
     }

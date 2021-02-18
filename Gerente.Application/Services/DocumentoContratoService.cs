@@ -30,22 +30,22 @@ namespace Gerente.Application.Services
             return _mapper.Map<DocumentoContratoViewModel>(obj);
         }
 
-        public void Add(DocumentoContratoViewModel obj, string nomeUsuario)
+        public void Add(DocumentoContratoViewModel obj)
         {
             var objeto = _mapper.Map<Documento>(obj);
-            _service.Add(objeto, nomeUsuario);
+            _service.Add(objeto);
         }
 
-        public void Edit(DocumentoContratoViewModel obj, string nomeUsuario)
+        public void Edit(DocumentoContratoViewModel obj)
         {
             var objeto = _mapper.Map<Documento>(obj);
-            _service.Edit(objeto, nomeUsuario);
+            _service.Edit(objeto);
         }
 
-        public void Delete(int id, string nomeUsuario)
+        public void Delete(int id)
         {
             var obj = _service.Get(id).Result;
-            _service.Delete(obj, nomeUsuario);
+            _service.Delete(obj);
         }
     }
 }

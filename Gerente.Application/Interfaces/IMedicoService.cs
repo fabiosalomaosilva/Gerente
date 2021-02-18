@@ -8,8 +8,8 @@ namespace Gerente.Application.Interfaces
     {
         Task<IEnumerable<MedicoViewModel>> Get();
         Task<MedicoViewModel> Get(int? id);
-        void Add(MedicoViewModel obj, string nomeUsuario);
-        void Edit(MedicoViewModel obj, string nomeUsuario);
-        void Delete(int id, string nomeUsuario);
+        void Add(MedicoViewModel obj);
+        void Edit(MedicoViewModel obj);
+        void Delete(int id);
     }
 }

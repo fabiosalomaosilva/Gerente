@@ -42,7 +42,7 @@ namespace Gerente.Infra.Data.Repositories
                 await _db.SaveChangesAsync();
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 //InformarErro.InsertAsync(_user.ClientId, idObjeto, tabela, auditoriaOperacao, LocalErro.Auditoria);
                 throw new Exception(ex.Message);

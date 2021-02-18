@@ -30,22 +30,22 @@ namespace Gerente.Application.Services
             return _mapper.Map<LocalProcedimentoViewModel>(obj);
         }
 
-        public void Add(LocalProcedimentoViewModel obj, string nomeUsuario)
+        public void Add(LocalProcedimentoViewModel obj)
         {
             var objeto = _mapper.Map<LocalProcedimento>(obj);
-            _service.Add(objeto, nomeUsuario);
+            _service.Add(objeto);
         }
 
-        public void Edit(LocalProcedimentoViewModel obj, string nomeUsuario)
+        public void Edit(LocalProcedimentoViewModel obj)
         {
             var objeto = _mapper.Map<LocalProcedimento>(obj);
-            _service.Edit(objeto, nomeUsuario);
+            _service.Edit(objeto);
         }
 
-        public void Delete(int id, string nomeUsuario)
+        public void Delete(int id)
         {
             var obj = _service.Get(id).Result;
-            _service.Delete(obj, nomeUsuario);
+            _service.Delete(obj);
         }
     }
 }

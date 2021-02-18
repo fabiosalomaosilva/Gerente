@@ -18,34 +18,35 @@ namespace Gerente.Application.Services
             _service = service;
             _mapper = mapper;
         }
-        public async Task<IEnumerable<EstadoViewModel>> Get()
+        public async Task<IEnumerable<EstadoViewModel>> GetAsync()
         {
-            var lista = await _service.Get();
+            var lista = await _service.GetAsync();
             return _mapper.Map<IEnumerable<EstadoViewModel>>(lista);
         }
 
-        public async Task<EstadoViewModel> Get(int? id)
+        public async Task<EstadoViewModel> GetAsync(int? id)
         {
-            var obj = await _service.Get(id);
+            var obj = await _service.GetAsync(id);
             return _mapper.Map<EstadoViewModel>(obj);
         }
 
-        public void Add(EstadoViewModel obj, string nomeUsuario)
+        public async Task<EstadoViewModel> AddAsync(EstadoViewModel obj)
         {
             var objeto = _mapper.Map<Estado>(obj);
-            _service.Add(objeto, nomeUsuario);
+            var objetoResult = await _service.AddAsync(objeto);
+            return _mapper.Map<EstadoViewModel>(objetoResult);
         }
 
-        public void Edit(EstadoViewModel obj, string nomeUsuario)
+        public async Task EditAsync(EstadoViewModel obj)
         {
             var objeto = _mapper.Map<Estado>(obj);
-            _service.Edit(objeto, nomeUsuario);
+            await _service.EditAsync(objeto);
         }
 
-        public void Delete(int id, string nomeUsuario)
+        public async Task DeleteAsync(int id)
         {
-            var obj = _service.Get(id).Result;
-            _service.Delete(obj, nomeUsuario);
+            var obj = await _service.GetAsync(id);
+            await _service.DeleteAsync(obj);
         }
     }
 }

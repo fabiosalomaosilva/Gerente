@@ -8,8 +8,8 @@ namespace Gerente.Application.Interfaces
     {
         Task<IEnumerable<CargoViewModel>> Get();
         Task<CargoViewModel> Get(int? id);
-        void Add(CargoViewModel obj, string nomeUsuario);
-        void Edit(CargoViewModel obj, string nomeUsuario);
-        void Delete(int id, string nomeUsuario);
+        void Add(CargoViewModel obj);
+        void Edit(CargoViewModel obj);
+        void Delete(int id);
     }
 }

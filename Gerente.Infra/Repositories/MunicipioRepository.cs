@@ -26,31 +26,31 @@ namespace Gerente.Infra.Data.Repositories
             return await _db.Municipios.FindAsync(id);
         }
 
-        public void Add(Municipio obj, string nomeUsuario)
+        public void Add(Municipio obj)
         {
-            var data = DateTime.Now;
-            obj.AlteradoEm = data;
-            obj.CriadoEm = data;
-            obj.AlteradoPor = nomeUsuario;
-            obj.CriadoPor = nomeUsuario;
-            obj.Ativo = true;
+
+
+
+
+
+
             _db.Add(obj);
             _db.SaveChanges();
         }
 
-        public void Edit(Municipio obj, string nomeUsuario)
+        public void Edit(Municipio obj)
         {
             obj.AlteradoEm = DateTime.Now;
-            obj.AlteradoPor = nomeUsuario;
+
             _db.Update(obj);
             _db.SaveChanges();
         }
 
-        public void Delete(Municipio obj, string nomeUsuario)
+        public void Delete(Municipio obj)
         {
             obj.Ativo = false;
             obj.AlteradoEm = DateTime.Now;
-            obj.AlteradoPor = nomeUsuario;
+
             _db.Update(obj);
             _db.SaveChanges();
         }

@@ -15,7 +15,7 @@ namespace Gerente.Infra.Data.EntityConfiguration
             builder.Property(p => p.Nome).HasMaxLength(150).IsRequired();
             builder.Property(p => p.Email).HasMaxLength(100);
             builder.HasOne(p => p.Secretaria).WithMany(b => b.Setores).HasForeignKey(p => p.SecretariaId);
-            
+
             builder.HasData(new Setor
             {
                 Id = 1,

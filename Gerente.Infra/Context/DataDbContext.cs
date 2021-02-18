@@ -61,15 +61,7 @@ namespace Gerente.Infra.Data.Context
                 i.Property(nameof(controle.CriadoEm)).IsModified = false;
                 i.Property(nameof(controle.Ativo)).IsModified = false;
             }
-            foreach (var i in ChangeTracker.Entries().Where(p => p.State == EntityState.Deleted && p.Entity is ControleVersao))
-            {
-                var controle = i.Entity as ControleVersao;
-                controle.AlteradoPor = _currentUserService.GetUser();
-                controle.AlteradoEm = data;
-                i.Property(nameof(controle.CriadoPor)).IsModified = false;
-                i.Property(nameof(controle.CriadoEm)).IsModified = false;
-                i.Property(nameof(controle.Ativo)).IsModified = false;
-            }
+
 
             return base.SaveChangesAsync(cancellationToken);
         }
@@ -135,7 +127,7 @@ namespace Gerente.Infra.Data.Context
                     ClaimValue = "false",
                     RoleId = role.Id
                 });
-        
+
                 id++;
                 builder.Entity<IdentityRoleClaim<string>>().HasData(new IdentityRoleClaim<string>
                 {
@@ -175,13 +167,16 @@ namespace Gerente.Infra.Data.Context
                 Cpf = "65788974291",
                 DataNascimento = Convert.ToDateTime("08/02/1981"),
                 SecretariaId = 1,
+                Secretaria = "Secretaria de Estado de Saúde",
                 SetorId = 1,
+                Setor = "Complexo Regulador Estadual",
                 Foto = "https://fundhacre.blob.core.windows.net/avatar/masculino01.png",
                 FotoExtensao = ".png",
                 Sexo = "Indefinido",
                 EmailConfirmed = true,
                 ConcurrencyStamp = Guid.NewGuid().ToString(),
-                NormalizedEmail = "FABIO@ARQUIVARNET.COM.BR"
+                NormalizedEmail = "FABIO@ARQUIVARNET.COM.BR",
+                NormalizedUserName = "FABIO@ARQUIVARNET.COM.BR"
             };
             var ph = new PasswordHasher<Usuario>();
             user.PasswordHash = ph.HashPassword(user, user.Cpf);

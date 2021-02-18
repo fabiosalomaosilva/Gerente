@@ -8,8 +8,8 @@ namespace Gerente.Application.Interfaces
     {
         Task<IEnumerable<AcompanhanteViewModel>> Get();
         Task<AcompanhanteViewModel> Get(int? id);
-        void Add(AcompanhanteViewModel obj, string nomeUsuario);
-        void Edit(AcompanhanteViewModel obj, string nomeUsuario);
-        void Delete(int id, string nomeUsuario);
+        void Add(AcompanhanteViewModel obj);
+        void Edit(AcompanhanteViewModel obj);
+        void Delete(int id);
     }
 }

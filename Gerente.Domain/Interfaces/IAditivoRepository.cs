@@ -9,10 +9,10 @@ namespace Gerente.Domain.Interfaces
 {
     public interface IAditivoRepository
     {
-        Task<IEnumerable<Aditivo>> Get();
-        Task<Aditivo> Get(int? id);
-        void Add(Aditivo obj, string nomeUsuario);
-        void Edit(Aditivo obj, string nomeUsuario);
-        void Delete(Aditivo obj, string nomeUsuario);
+        Task<IEnumerable<Aditivo>> GetAsync();
+        Task<Aditivo> GetAsync(int? id);
+        Task<Aditivo> AddAsync(Aditivo obj);
+        Task EditAsync(Aditivo obj);
+        Task DeleteAsync(Aditivo obj);
     }
 }

@@ -30,22 +30,22 @@ namespace Gerente.Application.Services
             return _mapper.Map<PacienteViewModel>(obj);
         }
 
-        public void Add(PacienteViewModel obj, string nomeUsuario)
+        public void Add(PacienteViewModel obj)
         {
             var objeto = _mapper.Map<Pessoa>(obj);
-            _service.Add(objeto, nomeUsuario);
+            _service.Add(objeto);
         }
 
-        public void Edit(PacienteViewModel obj, string nomeUsuario)
+        public void Edit(PacienteViewModel obj)
         {
             var objeto = _mapper.Map<Pessoa>(obj);
-            _service.Edit(objeto, nomeUsuario);
+            _service.Edit(objeto);
         }
 
-        public void Delete(int id, string nomeUsuario)
+        public void Delete(int id)
         {
             var obj = _service.Get(id).Result;
-            _service.Delete(obj, nomeUsuario);
+            _service.Delete(obj);
         }
     }
 }
