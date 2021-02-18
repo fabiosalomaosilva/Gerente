@@ -35,6 +35,9 @@ namespace Gerente.Application.Mappings
             CreateMap<Setor, SetorViewModel>();
             CreateMap<Telefone, TelefoneViewModel>();
             CreateMap<User, UsuarioViewModel>();
+            CreateMap<RoleClaim, RoleClaimViewModel>();
+            CreateMap<Role, RoleViewModel>();
+            CreateMap<UserLoginResult, UserLoginResultModel>();
         }
     }
 }

@@ -5,6 +5,7 @@ using Gerente.Infra.Data.Context;
 using Gerente.Infra.Data.Models;
 using Gerente.Infra.Data.Repositories;
 using Gerente.Infra.Data.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -34,27 +35,11 @@ namespace Gerente.Infra.IoC
                     o.User.RequireUniqueEmail = true;
 
                 })
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<DataDbContext>();
 
             services.AddTransient<IEmailSender, EmailSender>();
-
-            services.AddScoped<IAccountRepository, AccountRepository>();
-            services.AddScoped<IAditivoRepository, AditivoRepository>();
-            services.AddScoped<IAgendamentoRepository, AgendamentoRepository>();
-            services.AddScoped<ICargoRepository, CargoRepository>();
-            services.AddScoped<IContratoRepository, ContratoRepository>();
-            services.AddScoped<IDocumentoRepository, DocumentoRepository>();
-            services.AddScoped<IEspecialidadeRepository, EspecialidadeRepository>();
-            services.AddScoped<IEstadoRepository, EstadoRepository>();
-            services.AddScoped<IFilaProcedimentoRepository, FilaProcedimentoRepository>();
-            services.AddScoped<ILocalProcedimentoRepository, LocalProcedimentoRepository>();
-            services.AddScoped<IMedicoRepository, MedicoRepository>();
-            services.AddScoped<IMunicipioRepository, MunicipioRepository>();
-            services.AddScoped<IPessoaRepository, PessoaRepository>();
-            services.AddScoped<IProcedimentoRepository, ProcedimentoRepository>();
-            services.AddScoped<ISecretariaRepository, SecretariaRepository>();
-            services.AddScoped<ISetorRepository, SetorRepository>();
-            services.AddScoped<ITelefoneRepository, TelefoneRepository>();
+            services.AddTransient<ICurrentUserService, CurrentUserService>();
 
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IAcompanhanteService, AcompanhanteService>();
@@ -78,6 +63,25 @@ namespace Gerente.Infra.IoC
             services.AddScoped<IServidorService, ServidorService>();
             services.AddScoped<ISetorService, SetorService>();
             services.AddScoped<ITelefoneService, TelefoneService>();
+
+
+            services.AddScoped<IAccountRepository, AccountRepository>();
+            services.AddScoped<IAditivoRepository, AditivoRepository>();
+            services.AddScoped<IAgendamentoRepository, AgendamentoRepository>();
+            services.AddScoped<ICargoRepository, CargoRepository>();
+            services.AddScoped<IContratoRepository, ContratoRepository>();
+            services.AddScoped<IDocumentoRepository, DocumentoRepository>();
+            services.AddScoped<IEspecialidadeRepository, EspecialidadeRepository>();
+            services.AddScoped<IEstadoRepository, EstadoRepository>();
+            services.AddScoped<IFilaProcedimentoRepository, FilaProcedimentoRepository>();
+            services.AddScoped<ILocalProcedimentoRepository, LocalProcedimentoRepository>();
+            services.AddScoped<IMedicoRepository, MedicoRepository>();
+            services.AddScoped<IMunicipioRepository, MunicipioRepository>();
+            services.AddScoped<IPessoaRepository, PessoaRepository>();
+            services.AddScoped<IProcedimentoRepository, ProcedimentoRepository>();
+            services.AddScoped<ISecretariaRepository, SecretariaRepository>();
+            services.AddScoped<ISetorRepository, SetorRepository>();
+            services.AddScoped<ITelefoneRepository, TelefoneRepository>();
 
             return services;
         }

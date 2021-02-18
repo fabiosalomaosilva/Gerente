@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Gerente.Domain.Entities
 {
@@ -20,6 +21,7 @@ namespace Gerente.Domain.Entities
         public int SetorId { get; set; }
         public string Setor { get; set; }
         public bool LockoutEnabled { get; set; }
+
     }
 
     public class UserLoginResult
@@ -27,8 +29,9 @@ namespace Gerente.Domain.Entities
         public User Usuario { get; set; }
         public bool Succeeded { get; set; }
         public string Error { get; set; }
+        public Role Role { get; set; }
+        public IEnumerable<RoleClaim> Claims { get; set; }
     }
-
     public class UserLogin
     {
         public string Email { get; set; }

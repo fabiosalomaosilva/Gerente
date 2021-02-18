@@ -726,32 +726,119 @@ namespace Gerente.Infra.Data.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "ef26c2e9-509a-46cf-8436-d84b7d69bbc8", "202102151306070759", "Administrador", "ADMINISTRADOR" });
+                values: new object[] { "4f2a91a1-df68-4566-9e8f-7d387a89bffd", "daa325fd-78a0-4ae1-a574-142d9dfda068", "Administrador", "ADMINISTRADOR" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Cpf", "DataNascimento", "Discriminator", "Email", "EmailConfirmed", "Foto", "FotoExtensao", "LockoutEnabled", "LockoutEnd", "Matricula", "NomeCompleto", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "Secretaria", "SecretariaId", "SecurityStamp", "Setor", "SetorId", "Sexo", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "55d71fcc-a3fc-4d24-b6cd-bf6952464342", 0, "bfd33931-ee21-48ee-b532-a766bb27a094", "65788974291", new DateTime(1981, 2, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), "Usuario", "fabio@arquivarnet.com.br", true, "https://fundhacre.blob.core.windows.net/avatar/masculino01.png", ".png", false, null, "123456", "Fábio Salomão Silva Vogth", null, null, "AQAAAAEAACcQAAAAED13rEpYp7rdxoQg6tDriFWCshmK3GGeN/9OOPX7j0+J9AXtyyWW0SBEi0i6fndZcg==", null, false, null, 1, "9dc85133-13f6-4cb9-a706-9ea538cf0a57", null, 1, "Indefinido", false, "fabio@arquivarnet.com.br" });
+                values: new object[] { "e1b6762c-0a6c-4724-ba3c-ba0564e4ef7e", 0, "acb0ae18-dd0c-44cf-8dfb-71eb1de22151", "65788974291", new DateTime(1981, 2, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), "Usuario", "fabio@arquivarnet.com.br", true, "https://fundhacre.blob.core.windows.net/avatar/masculino01.png", ".png", false, null, "123456", "Fábio Salomão Silva Vogth", "FABIO@ARQUIVARNET.COM.BR", null, "AQAAAAEAACcQAAAAEKkHzSru9lji/fZlyihN6cHdZyZlio9PH2eJSNO48iuzAyzJY7z7WGgIcPPW1xCUpA==", null, false, null, 1, "bffa88c1-1304-403a-92f8-330a17c4a4f8", null, 1, "Indefinido", false, "fabio@arquivarnet.com.br" });
 
             migrationBuilder.InsertData(
                 table: "Estado",
                 columns: new[] { "Id", "AlteradoEm", "AlteradoPor", "Ativo", "CriadoEm", "CriadoPor", "Nome", "Uf" },
-                values: new object[] { 1, new DateTime(2021, 2, 15, 13, 6, 6, 954, DateTimeKind.Local).AddTicks(2668), "admin", true, new DateTime(2021, 2, 15, 13, 6, 6, 952, DateTimeKind.Local).AddTicks(1848), "admin", "Acre", "AC" });
+                values: new object[] { 1, new DateTime(2021, 2, 15, 15, 49, 22, 847, DateTimeKind.Local).AddTicks(8886), "admin", true, new DateTime(2021, 2, 15, 15, 49, 22, 846, DateTimeKind.Local).AddTicks(3989), "admin", "Acre", "AC" });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoleClaims",
+                columns: new[] { "Id", "ClaimType", "ClaimValue", "RoleId" },
+                values: new object[,]
+                {
+                    { 34, "FilaProcedimentosAdd", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 36, "FilaProcedimentosDelete", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 37, "LocalProcedimentosView", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 38, "LocalProcedimentosAdd", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 39, "LocalProcedimentosEdit", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 40, "LocalProcedimentosDelete", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 41, "MedicosView", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 42, "MedicosAdd", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 43, "MedicosEdit", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 44, "MedicosDelete", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 45, "MunicipiosView", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 46, "MunicipiosAdd", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 47, "MunicipiosEdit", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 48, "MunicipiosDelete", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 49, "PessoasView", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 35, "FilaProcedimentosEdit", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 50, "PessoasAdd", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 52, "PessoasDelete", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 53, "ProcedimentosView", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 54, "ProcedimentosAdd", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 55, "ProcedimentosEdit", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 56, "ProcedimentosDelete", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 57, "SecretariasView", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 58, "SecretariasAdd", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 59, "SecretariasEdit", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 60, "SecretariasDelete", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 61, "SetoresView", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 62, "SetoresAdd", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 63, "SetoresEdit", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 64, "SetoresDelete", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 65, "TelefonesView", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 51, "PessoasEdit", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 68, "TelefonesDelete", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 33, "FilaProcedimentosView", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 32, "EstadosDelete", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 1, "AditivosView", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 2, "AditivosAdd", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 3, "AditivosEdit", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 4, "AditivosDelete", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 5, "AgendamentosView", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 6, "AgendamentosAdd", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 7, "AgendamentosEdit", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoleClaims",
+                columns: new[] { "Id", "ClaimType", "ClaimValue", "RoleId" },
+                values: new object[,]
+                {
+                    { 8, "AgendamentosDelete", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 9, "AuditoriasView", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 10, "AuditoriasAdd", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 11, "AuditoriasEdit", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 12, "AuditoriasDelete", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 13, "CargosView", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 14, "CargosAdd", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 15, "CargosEdit", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 16, "CargosDelete", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 17, "ContratosView", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 31, "EstadosEdit", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 30, "EstadosAdd", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 29, "EstadosView", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 28, "EspecialidadesDelete", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 27, "EspecialidadesEdit", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 26, "EspecialidadesAdd", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 66, "TelefonesAdd", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 25, "EspecialidadesView", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 23, "DocumentosEdit", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 22, "DocumentosAdd", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 21, "DocumentosView", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 20, "ContratosDelete", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 19, "ContratosEdit", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 18, "ContratosAdd", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 24, "DocumentosDelete", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" },
+                    { 67, "TelefonesEdit", "false", "4f2a91a1-df68-4566-9e8f-7d387a89bffd" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUserRoles",
+                columns: new[] { "RoleId", "UserId" },
+                values: new object[] { "4f2a91a1-df68-4566-9e8f-7d387a89bffd", "e1b6762c-0a6c-4724-ba3c-ba0564e4ef7e" });
 
             migrationBuilder.InsertData(
                 table: "Municipio",
                 columns: new[] { "Id", "AlteradoEm", "AlteradoPor", "Ativo", "CriadoEm", "CriadoPor", "EstadoId", "Nome" },
-                values: new object[] { 1, new DateTime(2021, 2, 15, 13, 6, 6, 966, DateTimeKind.Local).AddTicks(5454), "admin", true, new DateTime(2021, 2, 15, 13, 6, 6, 966, DateTimeKind.Local).AddTicks(5420), "admin", 1, "Rio Branco" });
+                values: new object[] { 1, new DateTime(2021, 2, 15, 15, 49, 22, 857, DateTimeKind.Local).AddTicks(2267), "admin", true, new DateTime(2021, 2, 15, 15, 49, 22, 857, DateTimeKind.Local).AddTicks(2249), "admin", 1, "Rio Branco" });
 
             migrationBuilder.InsertData(
                 table: "Secretaria",
                 columns: new[] { "Id", "AlteradoEm", "AlteradoPor", "Ativo", "Bairro", "Cep", "Complemento", "CriadoEm", "CriadoPor", "EstadoId", "Logradouro", "MunicipioId", "Nome", "NomeSimplificado", "Numero" },
-                values: new object[] { 1, new DateTime(2021, 2, 15, 13, 6, 6, 983, DateTimeKind.Local).AddTicks(1437), "admin", true, "Centro", "69900000", null, new DateTime(2021, 2, 15, 13, 6, 6, 983, DateTimeKind.Local).AddTicks(1411), "admin", 1, "Rua Benjamim Constant", 1, "Secretaria de Estado de Saúde do Acre", "SESACRE", "81" });
+                values: new object[] { 1, new DateTime(2021, 2, 15, 15, 49, 22, 869, DateTimeKind.Local).AddTicks(4543), "admin", true, "Centro", "69900000", null, new DateTime(2021, 2, 15, 15, 49, 22, 869, DateTimeKind.Local).AddTicks(4524), "admin", 1, "Rua Benjamim Constant", 1, "Secretaria de Estado de Saúde do Acre", "SESACRE", "81" });
 
             migrationBuilder.InsertData(
                 table: "Setor",
                 columns: new[] { "Id", "AlteradoEm", "AlteradoPor", "Ativo", "CriadoEm", "CriadoPor", "Email", "Nome", "SecretariaId" },
-                values: new object[] { 1, new DateTime(2021, 2, 15, 13, 6, 6, 985, DateTimeKind.Local).AddTicks(8227), "admin", true, new DateTime(2021, 2, 15, 13, 6, 6, 985, DateTimeKind.Local).AddTicks(8196), "admin", "gerenciacomplexo@gmail.com", "Complexo Regulador Estadual", 1 });
+                values: new object[] { 1, new DateTime(2021, 2, 15, 15, 49, 22, 871, DateTimeKind.Local).AddTicks(2055), "admin", true, new DateTime(2021, 2, 15, 15, 49, 22, 871, DateTimeKind.Local).AddTicks(2048), "admin", "gerenciacomplexo@gmail.com", "Complexo Regulador Estadual", 1 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Aditivo_ContratoId",

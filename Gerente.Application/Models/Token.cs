@@ -1,4 +1,8 @@
-﻿namespace Gerente.Application.Models
+﻿using System.Collections.Generic;
+using Gerente.Application.ViewModels;
+using Gerente.Domain.Entities;
+
+namespace Gerente.Application.Models
 {
     public class Token
     {
@@ -15,5 +19,6 @@
         public string fotoUri { get; set; }
         public string issued { get; set; }
         public string expires { get; set; }
+        public List<Permissao> permissoes { get; set; }
     }
 }
