@@ -36,6 +36,7 @@ namespace Gerente.Infra.Data.Repositories
 
         public async Task EditAsync(Estado obj)
         {
+            obj.Ativo = true;
             _db.Update(obj);
             await _db.SaveChangesAsync();
         }

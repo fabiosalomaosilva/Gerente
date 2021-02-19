@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Linq;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using Gerente.Domain.Entities;
 using Gerente.Infra.Data.EntityConfiguration;
 using Gerente.Infra.Data.Models;
 using Gerente.Infra.Data.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace Gerente.Infra.Data.Context
 {
@@ -51,17 +52,47 @@ namespace Gerente.Infra.Data.Context
                 controle.CriadoEm = data;
                 controle.AlteradoEm = data;
                 controle.Ativo = true;
+              
+                var json = JsonConvert.SerializeObject(i.Entity);
+                var tabela = i.Metadata.ShortName();
+
+                var auditoria = new Auditoria
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    AuditadoEm = data,
+                    AuditadoPor = _currentUserService.GetUser(),
+                    IdObjeto = Convert.ToInt32(i.Property(nameof(controle.Id)).CurrentValue),
+                    Operacao = "Inclusao",
+                    Tabela = tabela,
+                    Valor = json
+                };
+                this.Auditorias.Add(auditoria);
             }
             foreach (var i in ChangeTracker.Entries().Where(p => p.State == EntityState.Modified && p.Entity is ControleVersao))
             {
                 var controle = i.Entity as ControleVersao;
                 controle.AlteradoPor = _currentUserService.GetUser();
                 controle.AlteradoEm = data;
+                controle.Ativo = Convert.ToBoolean(i.Property(nameof(controle.Ativo)).CurrentValue);
                 i.Property(nameof(controle.CriadoPor)).IsModified = false;
                 i.Property(nameof(controle.CriadoEm)).IsModified = false;
-                i.Property(nameof(controle.Ativo)).IsModified = false;
-            }
 
+                var json = JsonConvert.SerializeObject(i.Entity);
+                var tabela = i.Metadata.ShortName();
+                var tipo = Convert.ToBoolean(i.Property(nameof(controle.Ativo)).CurrentValue) == true ? "Edicao" : "Exclusao";
+
+                var auditoria = new Auditoria
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    AuditadoEm = data,
+                    AuditadoPor = _currentUserService.GetUser(),
+                    IdObjeto = Convert.ToInt32(i.Property(nameof(controle.Id)).CurrentValue),
+                    Operacao = tipo,
+                    Tabela = tabela,
+                    Valor = json
+                };
+                this.Auditorias.Add(auditoria);
+            }
 
             return base.SaveChangesAsync(cancellationToken);
         }

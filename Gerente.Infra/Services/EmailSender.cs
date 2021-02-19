@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.Extensions.Configuration;
@@ -51,9 +52,6 @@ namespace Gerente.Infra.Data.Services
         {
             _contextAccessor = contextAccessor;
         }
-        public string GetUser()
-        {
-            return _contextAccessor.HttpContext.User.Identity.Name;
-        }
+        public string GetUser() => _contextAccessor.HttpContext.User.Claims.FirstOrDefault(p => p.Type == "Email").Value;
     }
 }
