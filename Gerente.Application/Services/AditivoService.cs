@@ -33,8 +33,8 @@ namespace Gerente.Application.Services
         public async Task<AditivoViewModel> AddAsync(AditivoViewModel obj)
         {
             var objeto = _mapper.Map<Aditivo>(obj);
-            var objResult = await _service.AddAsync(objeto);
-            return _mapper.Map<AditivoViewModel>(objResult);
+            var objetoResult = await _service.AddAsync(objeto);
+            return _mapper.Map<AditivoViewModel>(objetoResult);
         }
 
         public async Task EditAsync(AditivoViewModel obj)

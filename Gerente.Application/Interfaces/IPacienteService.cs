@@ -6,10 +6,10 @@ namespace Gerente.Application.Interfaces
 {
     public interface IPacienteService
     {
-        Task<IEnumerable<PacienteViewModel>> Get();
-        Task<PacienteViewModel> Get(int? id);
-        void Add(PacienteViewModel obj);
-        void Edit(PacienteViewModel obj);
-        void Delete(int id);
+        Task<IEnumerable<PacienteViewModel>> GetAsync();
+        Task<PacienteViewModel> GetAsync(int? id);
+        Task<PacienteViewModel> AddAsync(PacienteViewModel obj);
+        Task EditAsync(PacienteViewModel obj);
+        Task DeleteAsync(int id);
     }
 }

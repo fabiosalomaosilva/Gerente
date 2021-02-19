@@ -6,10 +6,10 @@ namespace Gerente.Domain.Interfaces
 {
     public interface IMedicoRepository
     {
-        Task<IEnumerable<Medico>> Get();
-        Task<Medico> Get(int? id);
-        void Add(Medico obj);
-        void Edit(Medico obj);
-        void Delete(Medico obj);
+        Task<IEnumerable<Medico>> GetAsync();
+        Task<Medico> GetAsync(int? id);
+        Task<Medico> AddAsync(Medico obj);
+        Task EditAsync(Medico obj);
+        Task DeleteAsync(Medico obj);
     }
 }

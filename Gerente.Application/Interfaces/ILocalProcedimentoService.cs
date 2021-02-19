@@ -6,10 +6,10 @@ namespace Gerente.Application.Interfaces
 {
     public interface ILocalProcedimentoService
     {
-        Task<IEnumerable<LocalProcedimentoViewModel>> Get();
-        Task<LocalProcedimentoViewModel> Get(int? id);
-        void Add(LocalProcedimentoViewModel obj);
-        void Edit(LocalProcedimentoViewModel obj);
-        void Delete(int id);
+        Task<IEnumerable<LocalProcedimentoViewModel>> GetAsync();
+        Task<LocalProcedimentoViewModel> GetAsync(int? id);
+        Task<LocalProcedimentoViewModel> AddAsync(LocalProcedimentoViewModel obj);
+        Task EditAsync(LocalProcedimentoViewModel obj);
+        Task DeleteAsync(int id);
     }
 }

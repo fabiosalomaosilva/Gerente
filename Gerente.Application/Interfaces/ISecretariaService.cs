@@ -6,10 +6,10 @@ namespace Gerente.Application.Interfaces
 {
     public interface ISecretariaService
     {
-        Task<IEnumerable<SecretariaViewModel>> Get();
-        Task<SecretariaViewModel> Get(int? id);
-        void Add(SecretariaViewModel obj);
-        void Edit(SecretariaViewModel obj);
-        void Delete(int id);
+        Task<IEnumerable<SecretariaViewModel>> GetAsync();
+        Task<SecretariaViewModel> GetAsync(int? id);
+        Task<SecretariaViewModel> AddAsync(SecretariaViewModel obj);
+        Task EditAsync(SecretariaViewModel obj);
+        Task DeleteAsync(int id);
     }
 }

@@ -6,10 +6,10 @@ namespace Gerente.Application.Interfaces
 {
     public interface ITelefoneService
     {
-        Task<IEnumerable<TelefoneViewModel>> Get();
-        Task<TelefoneViewModel> Get(int? id);
-        void Add(TelefoneViewModel obj);
-        void Edit(TelefoneViewModel obj);
-        void Delete(int id);
+        Task<IEnumerable<TelefoneViewModel>> GetAsync();
+        Task<TelefoneViewModel> GetAsync(int? id);
+        Task<TelefoneViewModel> AddAsync(TelefoneViewModel obj);
+        Task EditAsync(TelefoneViewModel obj);
+        Task DeleteAsync(int id);
     }
 }

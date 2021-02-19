@@ -6,10 +6,10 @@ namespace Gerente.Domain.Interfaces
 {
     public interface IAgendamentoRepository
     {
-        Task<IEnumerable<Agendamento>> Get();
-        Task<Agendamento> Get(int? id);
-        void Add(Agendamento obj);
-        void Edit(Agendamento obj);
-        void Delete(Agendamento obj);
+        Task<IEnumerable<Agendamento>> GetAsync();
+        Task<Agendamento> GetAsync(int? id);
+        Task<Agendamento> AddAsync(Agendamento obj);
+        Task EditAsync(Agendamento obj);
+        Task DeleteAsync(Agendamento obj);
     }
 }

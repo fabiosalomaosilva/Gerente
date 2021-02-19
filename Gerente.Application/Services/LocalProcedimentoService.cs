@@ -18,34 +18,35 @@ namespace Gerente.Application.Services
             _service = service;
             _mapper = mapper;
         }
-        public async Task<IEnumerable<LocalProcedimentoViewModel>> Get()
+        public async Task<IEnumerable<LocalProcedimentoViewModel>> GetAsync()
         {
-            var lista = await _service.Get();
+            var lista = await _service.GetAsync();
             return _mapper.Map<IEnumerable<LocalProcedimentoViewModel>>(lista);
         }
 
-        public async Task<LocalProcedimentoViewModel> Get(int? id)
+        public async Task<LocalProcedimentoViewModel> GetAsync(int? id)
         {
-            var obj = await _service.Get(id);
+            var obj = await _service.GetAsync(id);
             return _mapper.Map<LocalProcedimentoViewModel>(obj);
         }
 
-        public void Add(LocalProcedimentoViewModel obj)
+        public async Task<LocalProcedimentoViewModel> AddAsync(LocalProcedimentoViewModel obj)
         {
             var objeto = _mapper.Map<LocalProcedimento>(obj);
-            _service.Add(objeto);
+            var objetoResult = await _service.AddAsync(objeto);
+            return _mapper.Map<LocalProcedimentoViewModel>(objetoResult);
         }
 
-        public void Edit(LocalProcedimentoViewModel obj)
+        public async Task EditAsync(LocalProcedimentoViewModel obj)
         {
             var objeto = _mapper.Map<LocalProcedimento>(obj);
-            _service.Edit(objeto);
+            await _service.EditAsync(objeto);
         }
 
-        public void Delete(int id)
+        public async Task DeleteAsync(int id)
         {
-            var obj = _service.Get(id).Result;
-            _service.Delete(obj);
+            var obj = await _service.GetAsync(id);
+            await _service.DeleteAsync(obj);
         }
     }
 }

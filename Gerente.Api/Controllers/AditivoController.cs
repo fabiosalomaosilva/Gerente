@@ -1,14 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Gerente.Application.Interfaces;
 using Gerente.Application.ViewModels;
-using Gerente.Domain.Entities;
-using Microsoft.AspNetCore.Authorization;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Gerente.Api.Controllers
 {
@@ -18,16 +13,40 @@ namespace Gerente.Api.Controllers
     {
         private readonly IAditivoService _aditivoService;
 
-        public AditivosController(IAditivoService aditivoService)
+        public AditivosController(IAditivoService AditivoService)
         {
-            _aditivoService = aditivoService;
+            _aditivoService = AditivoService;
         }
 
         [HttpGet]
+        [ClaimsAuth("AditivosView")]
         public async Task<IEnumerable<AditivoViewModel>> Get()
         {
             return await _aditivoService.GetAsync();
         }
 
+        [HttpPost]
+        [ClaimsAuth("AditivosAdd")]
+        public async Task<IActionResult> Post(AditivoViewModel obj)
+        {
+            var objResult = await _aditivoService.AddAsync(obj);
+            return Ok(objResult);
+        }
+
+        [HttpPut]
+        [ClaimsAuth("AditivosEdit")]
+        public async Task<IActionResult> Put(AditivoViewModel obj)
+        {
+            await _aditivoService.EditAsync(obj);
+            return Ok();
+        }
+
+        [HttpDelete("id")]
+        [ClaimsAuth("AditivosDelete")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _aditivoService.DeleteAsync(id);
+            return Ok("Registro excluído com sucesso");
+        }
     }
 }

@@ -16,43 +16,34 @@ namespace Gerente.Infra.Data.Repositories
         {
             _db = db;
         }
-        public async Task<IEnumerable<Contrato>> Get()
+        public async Task<IEnumerable<Contrato>> GetAsync()
         {
             return await _db.Contratos.ToListAsync();
         }
 
-        public async Task<Contrato> Get(int? id)
+        public async Task<Contrato> GetAsync(int? id)
         {
             return await _db.Contratos.FindAsync(id);
         }
 
-        public void Add(Contrato obj)
+        public async Task<Contrato> AddAsync(Contrato obj)
         {
-
-
-
-
-
-
             _db.Add(obj);
-            _db.SaveChanges();
+            await _db.SaveChangesAsync();
+            return obj;
         }
 
-        public void Edit(Contrato obj)
+        public async Task EditAsync(Contrato obj)
         {
-            obj.AlteradoEm = DateTime.Now;
-
             _db.Update(obj);
-            _db.SaveChanges();
+            await _db.SaveChangesAsync();
         }
 
-        public void Delete(Contrato obj)
+        public async Task DeleteAsync(Contrato obj)
         {
             obj.Ativo = false;
-            obj.AlteradoEm = DateTime.Now;
-
             _db.Update(obj);
-            _db.SaveChanges();
+            await _db.SaveChangesAsync();
         }
     }
 }

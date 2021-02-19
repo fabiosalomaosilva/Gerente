@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Gerente.Domain.Entities;
 using Gerente.Domain.Interfaces;
@@ -17,43 +18,34 @@ namespace Gerente.Infra.Data.Repositories
             _db = db;
         }
 
-        public async Task<IEnumerable<Pessoa>> Get()
+        public async Task<IEnumerable<Pessoa>> GetAsync()
         {
-            return await _db.Pessoas.ToListAsync();
+            return await _db.Pessoas.Where(p => p.Ativo).ToListAsync();
         }
 
-        public async Task<Pessoa> Get(int? id)
+        public async Task<Pessoa> GetAsync(int? id)
         {
             return await _db.Pessoas.FindAsync(id);
         }
 
-        public void Add(Pessoa obj)
+        public async Task<Pessoa> AddAsync(Pessoa obj)
         {
-
-
-
-
-
-
             _db.Add(obj);
-            _db.SaveChanges();
+            await _db.SaveChangesAsync();
+            return obj;
         }
 
-        public void Edit(Pessoa obj)
+        public async Task EditAsync(Pessoa obj)
         {
-            obj.AlteradoEm = DateTime.Now;
-
             _db.Update(obj);
-            _db.SaveChanges();
+            await _db.SaveChangesAsync();
         }
 
-        public void Delete(Pessoa obj)
+        public async Task DeleteAsync(Pessoa obj)
         {
             obj.Ativo = false;
-            obj.AlteradoEm = DateTime.Now;
-
             _db.Update(obj);
-            _db.SaveChanges();
+            await _db.SaveChangesAsync();
         }
     }
 }

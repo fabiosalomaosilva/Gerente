@@ -6,10 +6,10 @@ namespace Gerente.Application.Interfaces
 {
     public interface ICargoService
     {
-        Task<IEnumerable<CargoViewModel>> Get();
-        Task<CargoViewModel> Get(int? id);
-        void Add(CargoViewModel obj);
-        void Edit(CargoViewModel obj);
-        void Delete(int id);
+        Task<IEnumerable<CargoViewModel>> GetAsync();
+        Task<CargoViewModel> GetAsync(int? id);
+        Task<CargoViewModel> AddAsync(CargoViewModel obj);
+        Task EditAsync(CargoViewModel obj);
+        Task DeleteAsync(int id);
     }
 }

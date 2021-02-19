@@ -6,10 +6,10 @@ namespace Gerente.Domain.Interfaces
 {
     public interface ICargoRepository
     {
-        Task<IEnumerable<Cargo>> Get();
-        Task<Cargo> Get(int? id);
-        void Add(Cargo obj);
-        void Edit(Cargo obj);
-        void Delete(Cargo obj);
+        Task<IEnumerable<Cargo>> GetAsync();
+        Task<Cargo> GetAsync(int? id);
+        Task<Cargo> AddAsync(Cargo obj);
+        Task EditAsync(Cargo obj);
+        Task DeleteAsync(Cargo obj);
     }
 }

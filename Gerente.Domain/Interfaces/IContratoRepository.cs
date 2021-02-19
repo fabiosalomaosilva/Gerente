@@ -6,10 +6,10 @@ namespace Gerente.Domain.Interfaces
 {
     public interface IContratoRepository
     {
-        Task<IEnumerable<Contrato>> Get();
-        Task<Contrato> Get(int? id);
-        void Add(Contrato obj);
-        void Edit(Contrato obj);
-        void Delete(Contrato obj);
+        Task<IEnumerable<Contrato>> GetAsync();
+        Task<Contrato> GetAsync(int? id);
+        Task<Contrato> AddAsync(Contrato obj);
+        Task EditAsync(Contrato obj);
+        Task DeleteAsync(Contrato obj);
     }
 }

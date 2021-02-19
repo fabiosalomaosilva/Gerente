@@ -6,10 +6,10 @@ namespace Gerente.Domain.Interfaces
 {
     public interface ISetorRepository
     {
-        Task<IEnumerable<Setor>> Get();
-        Task<Setor> Get(int? id);
-        void Add(Setor obj);
-        void Edit(Setor obj);
-        void Delete(Setor obj);
+        Task<IEnumerable<Setor>> GetAsync();
+        Task<Setor> GetAsync(int? id);
+        Task<Setor> AddAsync(Setor obj);
+        Task EditAsync(Setor obj);
+        Task DeleteAsync(Setor obj);
     }
 }

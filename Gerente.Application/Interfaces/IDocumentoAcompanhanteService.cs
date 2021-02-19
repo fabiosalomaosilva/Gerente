@@ -6,10 +6,10 @@ namespace Gerente.Application.Interfaces
 {
     public interface IDocumentoAcompanhanteService
     {
-        Task<IEnumerable<DocumentoAcompanhanteViewModel>> Get();
-        Task<DocumentoAcompanhanteViewModel> Get(int? id);
-        void Add(DocumentoAcompanhanteViewModel obj);
-        void Edit(DocumentoAcompanhanteViewModel obj);
-        void Delete(int id);
+        Task<IEnumerable<DocumentoAcompanhanteViewModel>> GetAsync();
+        Task<DocumentoAcompanhanteViewModel> GetAsync(int? id);
+        Task<DocumentoAcompanhanteViewModel> AddAsync(DocumentoAcompanhanteViewModel obj);
+        Task EditAsync(DocumentoAcompanhanteViewModel obj);
+        Task DeleteAsync(int id);
     }
 }

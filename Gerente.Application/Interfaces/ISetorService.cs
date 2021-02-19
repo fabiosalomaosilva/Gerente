@@ -6,10 +6,10 @@ namespace Gerente.Application.Interfaces
 {
     public interface ISetorService
     {
-        Task<IEnumerable<SetorViewModel>> Get();
-        Task<SetorViewModel> Get(int? id);
-        void Add(SetorViewModel obj);
-        void Edit(SetorViewModel obj);
-        void Delete(int id);
+        Task<IEnumerable<SetorViewModel>> GetAsync();
+        Task<SetorViewModel> GetAsync(int? id);
+        Task<SetorViewModel> AddAsync(SetorViewModel obj);
+        Task EditAsync(SetorViewModel obj);
+        Task DeleteAsync(int id);
     }
 }

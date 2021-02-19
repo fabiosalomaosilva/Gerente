@@ -6,10 +6,10 @@ namespace Gerente.Domain.Interfaces
 {
     public interface IDocumentoRepository
     {
-        Task<IEnumerable<Documento>> Get();
-        Task<Documento> Get(int? id);
-        void Add(Documento obj);
-        void Edit(Documento obj);
-        void Delete(Documento obj);
+        Task<IEnumerable<Documento>> GetAsync();
+        Task<Documento> GetAsync(int? id);
+        Task<Documento> AddAsync(Documento obj);
+        Task EditAsync(Documento obj);
+        Task DeleteAsync(Documento obj);
     }
 }

@@ -6,10 +6,10 @@ namespace Gerente.Domain.Interfaces
 {
     public interface IProcedimentoRepository
     {
-        Task<IEnumerable<Procedimento>> Get();
-        Task<Procedimento> Get(int? id);
-        void Add(Procedimento obj);
-        void Edit(Procedimento obj);
-        void Delete(Procedimento obj);
+        Task<IEnumerable<Procedimento>> GetAsync();
+        Task<Procedimento> GetAsync(int? id);
+        Task<Procedimento> AddAsync(Procedimento obj);
+        Task EditAsync(Procedimento obj);
+        Task DeleteAsync(Procedimento obj);
     }
 }

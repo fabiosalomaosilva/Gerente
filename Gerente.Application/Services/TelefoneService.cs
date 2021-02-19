@@ -18,34 +18,35 @@ namespace Gerente.Application.Services
             _service = service;
             _mapper = mapper;
         }
-        public async Task<IEnumerable<TelefoneViewModel>> Get()
+        public async Task<IEnumerable<TelefoneViewModel>> GetAsync()
         {
-            var lista = await _service.Get();
+            var lista = await _service.GetAsync();
             return _mapper.Map<IEnumerable<TelefoneViewModel>>(lista);
         }
 
-        public async Task<TelefoneViewModel> Get(int? id)
+        public async Task<TelefoneViewModel> GetAsync(int? id)
         {
-            var obj = await _service.Get(id);
+            var obj = await _service.GetAsync(id);
             return _mapper.Map<TelefoneViewModel>(obj);
         }
 
-        public void Add(TelefoneViewModel obj)
+        public async Task<TelefoneViewModel> AddAsync(TelefoneViewModel obj)
         {
             var objeto = _mapper.Map<Telefone>(obj);
-            _service.Add(objeto);
+            var objetoResult = await _service.AddAsync(objeto);
+            return _mapper.Map<TelefoneViewModel>(objetoResult);
         }
 
-        public void Edit(TelefoneViewModel obj)
+        public async Task EditAsync(TelefoneViewModel obj)
         {
             var objeto = _mapper.Map<Telefone>(obj);
-            _service.Edit(objeto);
+            await _service.EditAsync(objeto);
         }
 
-        public void Delete(int id)
+        public async Task DeleteAsync(int id)
         {
-            var obj = _service.Get(id).Result;
-            _service.Delete(obj);
+            var obj = await _service.GetAsync(id);
+            await _service.DeleteAsync(obj);
         }
     }
 }

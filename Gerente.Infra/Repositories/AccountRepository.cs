@@ -29,7 +29,7 @@ namespace Gerente.Infra.Data.Repositories
             _mapper = mapper;
             _context = context;
         }
-        public async void Logout()
+        public async Task LogoutAsync()
         {
             await _signInManager.SignOutAsync();
         }
@@ -84,25 +84,25 @@ namespace Gerente.Infra.Data.Repositories
             return result.Succeeded;
         }
 
-        public async void Edit(User obj)
+        public async Task EditAsync(User obj)
         {
             var user = _mapper.Map<Usuario>(obj);
             await _userManager.UpdateAsync(user);
         }
 
-        public async void ChangePassword(ChangePassword obj)
+        public async Task ChangePasswordAsync(ChangePassword obj)
         {
             var user = _mapper.Map<Usuario>(obj.Usuario);
             await _userManager.ChangePasswordAsync(user, obj.OldPassword, obj.NewPassword);
         }
 
-        public async void ResetPassword(ResetPassword obj)
+        public async Task ResetPassword(ResetPassword obj)
         {
             var user = _mapper.Map<Usuario>(obj.Usuario);
             await _userManager.ResetPasswordAsync(user, obj.Code, obj.Password);
         }
 
-        public async void DisableUser(User obj)
+        public async Task DisableUserAsync(User obj)
         {
             var user = _mapper.Map<Usuario>(obj);
             var lockoutEndDate = new DateTime(2999, 01, 01);
@@ -110,13 +110,13 @@ namespace Gerente.Infra.Data.Repositories
             await _userManager.SetLockoutEndDateAsync(user, lockoutEndDate);
         }
 
-        public async void EnableUser(User obj)
+        public async Task EnableUserAsync(User obj)
         {
             var user = _mapper.Map<Usuario>(obj);
             await _userManager.SetLockoutEnabledAsync(user, false);
         }
 
-        public async void AddRole(Role role)
+        public async Task AddRoleAsync(Role role)
         {
             var lista = _context.RetornaTabelas();
             var identityRole = _mapper.Map<IdentityRole>(role);
@@ -131,25 +131,25 @@ namespace Gerente.Infra.Data.Repositories
             }
         }
 
-        public async void EditRole(Role role)
+        public async Task EditRoleAsync(Role role)
         {
             var identityRole = _mapper.Map<IdentityRole>(role);
             await _roleManager.UpdateAsync(identityRole);
         }
 
-        public async void DeleteRole(Role role)
+        public async Task DeleteRoleAsync(Role role)
         {
             var identityRole = _mapper.Map<IdentityRole>(role);
             await _roleManager.DeleteAsync(identityRole);
         }
 
-        public async Task<IEnumerable<RoleClaim>> GetClaims(Role role)
+        public async Task<IEnumerable<RoleClaim>> GetClaimsAsync(Role role)
         {
             var lista = await _context.RoleClaims.Where(p => p.RoleId == role.Id).ToListAsync();
             return _mapper.Map<IEnumerable<RoleClaim>>(lista);
         }
 
-        public async void EditClaims(Role role, IEnumerable<RoleClaim> claims)
+        public async Task EditClaimsAsync(Role role, IEnumerable<RoleClaim> claims)
         {
             var lista = await _context.RoleClaims.Where(p => p.RoleId == role.Id).ToListAsync();
             var listaClaims = _mapper.Map<IEnumerable<IdentityRoleClaim<string>>>(claims);

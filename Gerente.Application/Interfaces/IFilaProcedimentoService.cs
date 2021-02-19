@@ -6,10 +6,10 @@ namespace Gerente.Application.Interfaces
 {
     public interface IFilaProcedimentoService
     {
-        Task<IEnumerable<FilaProcedimentoViewModel>> Get();
-        Task<FilaProcedimentoViewModel> Get(int? id);
-        void Add(FilaProcedimentoViewModel obj);
-        void Edit(FilaProcedimentoViewModel obj);
-        void Delete(int id);
+        Task<IEnumerable<FilaProcedimentoViewModel>> GetAsync();
+        Task<FilaProcedimentoViewModel> GetAsync(int? id);
+        Task<FilaProcedimentoViewModel> AddAsync(FilaProcedimentoViewModel obj);
+        Task EditAsync(FilaProcedimentoViewModel obj);
+        Task DeleteAsync(int id);
     }
 }
