@@ -6,7 +6,7 @@ namespace Gerente.Domain.Interfaces
 {
     public interface IEstadoRepository
     {
-        Task<IEnumerable<Estado>> GetAsync();
+        Task<ListData> GetAsync(PaginationDTO pagination, string name);
         Task<Estado> GetAsync(int? id);
         Task<Estado> AddAsync(Estado obj);
         Task EditAsync(Estado obj);

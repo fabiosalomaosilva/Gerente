@@ -18,10 +18,11 @@ namespace Gerente.Application.Services
             _service = service;
             _mapper = mapper;
         }
-        public async Task<IEnumerable<EstadoViewModel>> GetAsync()
+        public async Task<ListData> GetAsync(PaginationDTO pagination, string name = null)
         {
-            var lista = await _service.GetAsync();
-            return _mapper.Map<IEnumerable<EstadoViewModel>>(lista);
+            var lista = await _service.GetAsync(pagination, name);
+            lista.Data = _mapper.Map<IEnumerable<EstadoViewModel>>(lista.Data);
+            return lista;
         }
 
         public async Task<EstadoViewModel> GetAsync(int? id)

@@ -1,4 +1,4 @@
-﻿namespace Gerente.Infra.Data.Models
+﻿namespace Gerente.Domain.Entities
 {
     public class PaginationDTO
     {
