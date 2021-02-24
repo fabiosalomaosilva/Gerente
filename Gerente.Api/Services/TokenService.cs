@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Text.RegularExpressions;
+using AutoMapper;
 using Gerente.Application.Models;
 using Gerente.Application.ViewModels;
 using Microsoft.Extensions.Configuration;
@@ -16,10 +17,12 @@ namespace Gerente.Api.Services
     public class TokenService : ITokenService
     {
         private readonly string _apiKey;
+        private readonly IMapper mapper;
 
-        public TokenService(IConfiguration config)
+        public TokenService(IConfiguration config, IMapper mapper)
         {
             _apiKey = config.GetSection("ApiKey").Value;
+            this.mapper = mapper;
         }
 
         public Token AddToken(UsuarioViewModel user, IEnumerable<RoleClaimViewModel> claims)
@@ -44,6 +47,8 @@ namespace Gerente.Api.Services
                 {
                     foto = user.Foto;
                 }
+
+                //var claimss = mapper.Map<IEnumerable<ClaimViewModel>>(claims);
 
                 return new Token
                 {
@@ -83,40 +88,14 @@ namespace Gerente.Api.Services
             );
         }
 
-        private List<Permissao> ListarPermissoes(IEnumerable<RoleClaimViewModel> lista)
+        private string ListarPermissoes(IEnumerable<RoleClaimViewModel> lista)
         {
-            var list = new List<Permissao>();
+            var list = new Dictionary<string, string>();
             foreach (var i in lista)
             {
-                var nome = Regex.Split(i.ClaimType, @"(?<!^)(?=[A-Z])");
-                var permissao = new Permissao();
-                var perm = list.FirstOrDefault(p => p.Tabela == nome[0]);
-                if(perm != null) {
-                    permissao = perm;
-                }
-                else
-                {
-                    permissao.Tabela = nome[0];
-                    list.Add(permissao);
-                }
-                if (nome[1] == "View")
-                {
-                    permissao.Visualizar = Convert.ToBoolean(i.ClaimValue);
-                }
-                if (nome[1] == "Add")
-                {
-                    permissao.Adicionar = Convert.ToBoolean(i.ClaimValue);
-                }
-                if (nome[1] == "Edit")
-                {
-                    permissao.Editar = Convert.ToBoolean(i.ClaimValue);
-                }
-                if (nome[1] == "Delete")
-                {
-                    permissao.Excluir = Convert.ToBoolean(i.ClaimValue);
-                }
+                list.Add(i.ClaimType, i.ClaimValue);
             }
-            return list;
+            return JsonConvert.SerializeObject(list);
         }
     }
 }

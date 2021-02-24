@@ -420,10 +420,10 @@ namespace Gerente.Infra.Data.Migrations
                         new
                         {
                             Id = 1,
-                            AlteradoEm = new DateTime(2021, 2, 15, 15, 49, 22, 847, DateTimeKind.Local).AddTicks(8886),
+                            AlteradoEm = new DateTime(2021, 2, 24, 17, 49, 41, 585, DateTimeKind.Local).AddTicks(609),
                             AlteradoPor = "admin",
                             Ativo = true,
-                            CriadoEm = new DateTime(2021, 2, 15, 15, 49, 22, 846, DateTimeKind.Local).AddTicks(3989),
+                            CriadoEm = new DateTime(2021, 2, 24, 17, 49, 41, 583, DateTimeKind.Local).AddTicks(8623),
                             CriadoPor = "admin",
                             Nome = "Acre",
                             Uf = "AC"
@@ -651,10 +651,10 @@ namespace Gerente.Infra.Data.Migrations
                         new
                         {
                             Id = 1,
-                            AlteradoEm = new DateTime(2021, 2, 15, 15, 49, 22, 857, DateTimeKind.Local).AddTicks(2267),
+                            AlteradoEm = new DateTime(2021, 2, 24, 17, 49, 41, 598, DateTimeKind.Local).AddTicks(9908),
                             AlteradoPor = "admin",
                             Ativo = true,
-                            CriadoEm = new DateTime(2021, 2, 15, 15, 49, 22, 857, DateTimeKind.Local).AddTicks(2249),
+                            CriadoEm = new DateTime(2021, 2, 24, 17, 49, 41, 598, DateTimeKind.Local).AddTicks(9881),
                             CriadoPor = "admin",
                             EstadoId = 1,
                             Nome = "Rio Branco"
@@ -930,12 +930,12 @@ namespace Gerente.Infra.Data.Migrations
                         new
                         {
                             Id = 1,
-                            AlteradoEm = new DateTime(2021, 2, 15, 15, 49, 22, 869, DateTimeKind.Local).AddTicks(4543),
+                            AlteradoEm = new DateTime(2021, 2, 24, 17, 49, 41, 618, DateTimeKind.Local).AddTicks(2428),
                             AlteradoPor = "admin",
                             Ativo = true,
                             Bairro = "Centro",
                             Cep = "69900000",
-                            CriadoEm = new DateTime(2021, 2, 15, 15, 49, 22, 869, DateTimeKind.Local).AddTicks(4524),
+                            CriadoEm = new DateTime(2021, 2, 24, 17, 49, 41, 618, DateTimeKind.Local).AddTicks(2400),
                             CriadoPor = "admin",
                             EstadoId = 1,
                             Logradouro = "Rua Benjamim Constant",
@@ -992,10 +992,10 @@ namespace Gerente.Infra.Data.Migrations
                         new
                         {
                             Id = 1,
-                            AlteradoEm = new DateTime(2021, 2, 15, 15, 49, 22, 871, DateTimeKind.Local).AddTicks(2055),
+                            AlteradoEm = new DateTime(2021, 2, 24, 17, 49, 41, 620, DateTimeKind.Local).AddTicks(8491),
                             AlteradoPor = "admin",
                             Ativo = true,
-                            CriadoEm = new DateTime(2021, 2, 15, 15, 49, 22, 871, DateTimeKind.Local).AddTicks(2048),
+                            CriadoEm = new DateTime(2021, 2, 24, 17, 49, 41, 620, DateTimeKind.Local).AddTicks(8465),
                             CriadoPor = "admin",
                             Email = "gerenciacomplexo@gmail.com",
                             Nome = "Complexo Regulador Estadual",
@@ -1088,8 +1088,8 @@ namespace Gerente.Infra.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "4f2a91a1-df68-4566-9e8f-7d387a89bffd",
-                            ConcurrencyStamp = "daa325fd-78a0-4ae1-a574-142d9dfda068",
+                            Id = "1b7761cf-d369-4264-bde0-7b58edab8492",
+                            ConcurrencyStamp = "1254e3f4-357e-4711-8917-a5cd4f35fd2c",
                             Name = "Administrador",
                             NormalizedName = "ADMINISTRADOR"
                         });
@@ -1122,478 +1122,121 @@ namespace Gerente.Infra.Data.Migrations
                         new
                         {
                             Id = 1,
-                            ClaimType = "AditivosView",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                            ClaimType = "Aditivos",
+                            ClaimValue = "1,1,1,1",
+                            RoleId = "1b7761cf-d369-4264-bde0-7b58edab8492"
                         },
                         new
                         {
                             Id = 2,
-                            ClaimType = "AditivosAdd",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                            ClaimType = "Agendamentos",
+                            ClaimValue = "1,1,1,1",
+                            RoleId = "1b7761cf-d369-4264-bde0-7b58edab8492"
                         },
                         new
                         {
                             Id = 3,
-                            ClaimType = "AditivosEdit",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                            ClaimType = "Auditorias",
+                            ClaimValue = "1,1,1,1",
+                            RoleId = "1b7761cf-d369-4264-bde0-7b58edab8492"
                         },
                         new
                         {
                             Id = 4,
-                            ClaimType = "AditivosDelete",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                            ClaimType = "Cargos",
+                            ClaimValue = "1,1,1,1",
+                            RoleId = "1b7761cf-d369-4264-bde0-7b58edab8492"
                         },
                         new
                         {
                             Id = 5,
-                            ClaimType = "AgendamentosView",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                            ClaimType = "Contratos",
+                            ClaimValue = "1,1,1,1",
+                            RoleId = "1b7761cf-d369-4264-bde0-7b58edab8492"
                         },
                         new
                         {
                             Id = 6,
-                            ClaimType = "AgendamentosAdd",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                            ClaimType = "Documentos",
+                            ClaimValue = "1,1,1,1",
+                            RoleId = "1b7761cf-d369-4264-bde0-7b58edab8492"
                         },
                         new
                         {
                             Id = 7,
-                            ClaimType = "AgendamentosEdit",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                            ClaimType = "Especialidades",
+                            ClaimValue = "1,1,1,1",
+                            RoleId = "1b7761cf-d369-4264-bde0-7b58edab8492"
                         },
                         new
                         {
                             Id = 8,
-                            ClaimType = "AgendamentosDelete",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                            ClaimType = "Estados",
+                            ClaimValue = "1,1,1,1",
+                            RoleId = "1b7761cf-d369-4264-bde0-7b58edab8492"
                         },
                         new
                         {
                             Id = 9,
-                            ClaimType = "AuditoriasView",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                            ClaimType = "FilaProcedimentos",
+                            ClaimValue = "1,1,1,1",
+                            RoleId = "1b7761cf-d369-4264-bde0-7b58edab8492"
                         },
                         new
                         {
                             Id = 10,
-                            ClaimType = "AuditoriasAdd",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                            ClaimType = "LocalProcedimentos",
+                            ClaimValue = "1,1,1,1",
+                            RoleId = "1b7761cf-d369-4264-bde0-7b58edab8492"
                         },
                         new
                         {
                             Id = 11,
-                            ClaimType = "AuditoriasEdit",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                            ClaimType = "Medicos",
+                            ClaimValue = "1,1,1,1",
+                            RoleId = "1b7761cf-d369-4264-bde0-7b58edab8492"
                         },
                         new
                         {
                             Id = 12,
-                            ClaimType = "AuditoriasDelete",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                            ClaimType = "Municipios",
+                            ClaimValue = "1,1,1,1",
+                            RoleId = "1b7761cf-d369-4264-bde0-7b58edab8492"
                         },
                         new
                         {
                             Id = 13,
-                            ClaimType = "CargosView",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                            ClaimType = "Pessoas",
+                            ClaimValue = "1,1,1,1",
+                            RoleId = "1b7761cf-d369-4264-bde0-7b58edab8492"
                         },
                         new
                         {
                             Id = 14,
-                            ClaimType = "CargosAdd",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                            ClaimType = "Procedimentos",
+                            ClaimValue = "1,1,1,1",
+                            RoleId = "1b7761cf-d369-4264-bde0-7b58edab8492"
                         },
                         new
                         {
                             Id = 15,
-                            ClaimType = "CargosEdit",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                            ClaimType = "Secretarias",
+                            ClaimValue = "1,1,1,1",
+                            RoleId = "1b7761cf-d369-4264-bde0-7b58edab8492"
                         },
                         new
                         {
                             Id = 16,
-                            ClaimType = "CargosDelete",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                            ClaimType = "Setores",
+                            ClaimValue = "1,1,1,1",
+                            RoleId = "1b7761cf-d369-4264-bde0-7b58edab8492"
                         },
                         new
                         {
                             Id = 17,
-                            ClaimType = "ContratosView",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 18,
-                            ClaimType = "ContratosAdd",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 19,
-                            ClaimType = "ContratosEdit",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 20,
-                            ClaimType = "ContratosDelete",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 21,
-                            ClaimType = "DocumentosView",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 22,
-                            ClaimType = "DocumentosAdd",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 23,
-                            ClaimType = "DocumentosEdit",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 24,
-                            ClaimType = "DocumentosDelete",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 25,
-                            ClaimType = "EspecialidadesView",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 26,
-                            ClaimType = "EspecialidadesAdd",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 27,
-                            ClaimType = "EspecialidadesEdit",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 28,
-                            ClaimType = "EspecialidadesDelete",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 29,
-                            ClaimType = "EstadosView",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 30,
-                            ClaimType = "EstadosAdd",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 31,
-                            ClaimType = "EstadosEdit",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 32,
-                            ClaimType = "EstadosDelete",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 33,
-                            ClaimType = "FilaProcedimentosView",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 34,
-                            ClaimType = "FilaProcedimentosAdd",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 35,
-                            ClaimType = "FilaProcedimentosEdit",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 36,
-                            ClaimType = "FilaProcedimentosDelete",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 37,
-                            ClaimType = "LocalProcedimentosView",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 38,
-                            ClaimType = "LocalProcedimentosAdd",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 39,
-                            ClaimType = "LocalProcedimentosEdit",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 40,
-                            ClaimType = "LocalProcedimentosDelete",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 41,
-                            ClaimType = "MedicosView",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 42,
-                            ClaimType = "MedicosAdd",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 43,
-                            ClaimType = "MedicosEdit",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 44,
-                            ClaimType = "MedicosDelete",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 45,
-                            ClaimType = "MunicipiosView",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 46,
-                            ClaimType = "MunicipiosAdd",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 47,
-                            ClaimType = "MunicipiosEdit",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 48,
-                            ClaimType = "MunicipiosDelete",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 49,
-                            ClaimType = "PessoasView",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 50,
-                            ClaimType = "PessoasAdd",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 51,
-                            ClaimType = "PessoasEdit",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 52,
-                            ClaimType = "PessoasDelete",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 53,
-                            ClaimType = "ProcedimentosView",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 54,
-                            ClaimType = "ProcedimentosAdd",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 55,
-                            ClaimType = "ProcedimentosEdit",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 56,
-                            ClaimType = "ProcedimentosDelete",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 57,
-                            ClaimType = "SecretariasView",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 58,
-                            ClaimType = "SecretariasAdd",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 59,
-                            ClaimType = "SecretariasEdit",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 60,
-                            ClaimType = "SecretariasDelete",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 61,
-                            ClaimType = "SetoresView",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 62,
-                            ClaimType = "SetoresAdd",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 63,
-                            ClaimType = "SetoresEdit",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 64,
-                            ClaimType = "SetoresDelete",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 65,
-                            ClaimType = "TelefonesView",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 66,
-                            ClaimType = "TelefonesAdd",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 67,
-                            ClaimType = "TelefonesEdit",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
-                        },
-                        new
-                        {
-                            Id = 68,
-                            ClaimType = "TelefonesDelete",
-                            ClaimValue = "false",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                            ClaimType = "Telefones",
+                            ClaimValue = "1,1,1,1",
+                            RoleId = "1b7761cf-d369-4264-bde0-7b58edab8492"
                         });
                 });
 
@@ -1733,8 +1376,8 @@ namespace Gerente.Infra.Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "e1b6762c-0a6c-4724-ba3c-ba0564e4ef7e",
-                            RoleId = "4f2a91a1-df68-4566-9e8f-7d387a89bffd"
+                            UserId = "fa6600a9-36f2-4aff-a14e-bf270b9da727",
+                            RoleId = "1b7761cf-d369-4264-bde0-7b58edab8492"
                         });
                 });
 
@@ -1812,16 +1455,17 @@ namespace Gerente.Infra.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "e1b6762c-0a6c-4724-ba3c-ba0564e4ef7e",
+                            Id = "fa6600a9-36f2-4aff-a14e-bf270b9da727",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "acb0ae18-dd0c-44cf-8dfb-71eb1de22151",
+                            ConcurrencyStamp = "4652d688-a8b0-4213-969f-f53695f9e221",
                             Email = "fabio@arquivarnet.com.br",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "FABIO@ARQUIVARNET.COM.BR",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKkHzSru9lji/fZlyihN6cHdZyZlio9PH2eJSNO48iuzAyzJY7z7WGgIcPPW1xCUpA==",
+                            NormalizedUserName = "FABIO@ARQUIVARNET.COM.BR",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJtJ1DFQlygHGLaphf+T7DoVraW1rdLOa+KBXI7HEz4u1sKosmfXkgN7AFuozWIwbQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "bffa88c1-1304-403a-92f8-330a17c4a4f8",
+                            SecurityStamp = "127fa936-cdb7-45cc-8d0b-6a2023ffbb71",
                             TwoFactorEnabled = false,
                             UserName = "fabio@arquivarnet.com.br",
                             Cpf = "65788974291",
@@ -1830,7 +1474,9 @@ namespace Gerente.Infra.Data.Migrations
                             FotoExtensao = ".png",
                             Matricula = "123456",
                             NomeCompleto = "Fábio Salomão Silva Vogth",
+                            Secretaria = "Secretaria de Estado de Saúde",
                             SecretariaId = 1,
+                            Setor = "Complexo Regulador Estadual",
                             SetorId = 1,
                             Sexo = "Indefinido"
                         });
@@ -1841,7 +1487,7 @@ namespace Gerente.Infra.Data.Migrations
                     b.HasOne("Gerente.Domain.Entities.Contrato", "Contrato")
                         .WithMany("Aditivos")
                         .HasForeignKey("ContratoId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Contrato");
@@ -1852,7 +1498,7 @@ namespace Gerente.Infra.Data.Migrations
                     b.HasOne("Gerente.Domain.Entities.FilaProcedimento", "FilaProcedimento")
                         .WithMany("Agendamentos")
                         .HasForeignKey("FilaProcedimentoId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("FilaProcedimento");
@@ -1863,13 +1509,13 @@ namespace Gerente.Infra.Data.Migrations
                     b.HasOne("Gerente.Domain.Entities.Secretaria", "Secretaria")
                         .WithMany("Cargos")
                         .HasForeignKey("SecretariaId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Gerente.Domain.Entities.Setor", "Setor")
                         .WithMany("Cargos")
                         .HasForeignKey("SetorId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Secretaria");
@@ -1882,13 +1528,13 @@ namespace Gerente.Infra.Data.Migrations
                     b.HasOne("Gerente.Domain.Entities.Pessoa", "Fornecedor")
                         .WithMany("ContratosFornecedores")
                         .HasForeignKey("FornecedorId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Gerente.Domain.Entities.Pessoa", "Representante")
                         .WithMany("ContratosRepresentantes")
                         .HasForeignKey("RepresentanteId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Fornecedor");
@@ -1901,19 +1547,19 @@ namespace Gerente.Infra.Data.Migrations
                     b.HasOne("Gerente.Domain.Entities.Aditivo", "Aditivo")
                         .WithMany("Documentos")
                         .HasForeignKey("AditivoId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Gerente.Domain.Entities.Contrato", "Contrato")
                         .WithMany("Documentos")
                         .HasForeignKey("ContratoId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Gerente.Domain.Entities.Pessoa", "Pessoa")
                         .WithMany("Documentos")
                         .HasForeignKey("PessoaId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Aditivo");
@@ -1928,31 +1574,31 @@ namespace Gerente.Infra.Data.Migrations
                     b.HasOne("Gerente.Domain.Entities.Especialidade", "Especialidade")
                         .WithMany("FilaProcedimentos")
                         .HasForeignKey("EspecialidadeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Gerente.Domain.Entities.LocalProcedimento", "LocalProcedimento")
                         .WithMany("FilaProcedimentos")
                         .HasForeignKey("LocalProcedimentoId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Gerente.Domain.Entities.Medico", "Medico")
                         .WithMany("FilaProcedimentos")
                         .HasForeignKey("MedicoId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Gerente.Domain.Entities.Pessoa", "Paciente")
                         .WithMany("FilaProcedimentos")
                         .HasForeignKey("PacienteId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Gerente.Domain.Entities.Procedimento", "Procedimento")
                         .WithMany("FilaProcedimentos")
                         .HasForeignKey("ProcedimentoId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Especialidade");
@@ -1971,13 +1617,13 @@ namespace Gerente.Infra.Data.Migrations
                     b.HasOne("Gerente.Domain.Entities.Estado", "Estado")
                         .WithMany("LocalProcedimentos")
                         .HasForeignKey("EstadoId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Gerente.Domain.Entities.Municipio", "Municipio")
                         .WithMany("LocalProcedimentos")
                         .HasForeignKey("MunicipioId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Estado");
@@ -1990,7 +1636,7 @@ namespace Gerente.Infra.Data.Migrations
                     b.HasOne("Gerente.Domain.Entities.LocalProcedimento", "LocalProcedimento")
                         .WithMany("Medicos")
                         .HasForeignKey("LocalProcedimentoId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("LocalProcedimento");
@@ -2001,7 +1647,7 @@ namespace Gerente.Infra.Data.Migrations
                     b.HasOne("Gerente.Domain.Entities.Estado", "Estado")
                         .WithMany("Municipios")
                         .HasForeignKey("EstadoId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Estado");
@@ -2012,7 +1658,7 @@ namespace Gerente.Infra.Data.Migrations
                     b.HasOne("Gerente.Domain.Entities.Pessoa", "Acompanhante")
                         .WithMany("Acompanhantes")
                         .HasForeignKey("AcompanhanteId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Gerente.Domain.Entities.Contrato", null)
@@ -2022,31 +1668,31 @@ namespace Gerente.Infra.Data.Migrations
                     b.HasOne("Gerente.Domain.Entities.Estado", "Estado")
                         .WithMany("Pessoas")
                         .HasForeignKey("EstadoId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Gerente.Domain.Entities.Municipio", "Municipio")
                         .WithMany("Pessoas")
                         .HasForeignKey("MunicipioId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Gerente.Domain.Entities.Pessoa", "Representante")
                         .WithMany("Representantes")
                         .HasForeignKey("RepresentanteId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Gerente.Domain.Entities.Secretaria", "Secretaria")
                         .WithMany("Servidores")
                         .HasForeignKey("SecretariaId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Gerente.Domain.Entities.Setor", "Setor")
                         .WithMany("Servidores")
                         .HasForeignKey("SetorId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Acompanhante");
@@ -2067,7 +1713,7 @@ namespace Gerente.Infra.Data.Migrations
                     b.HasOne("Gerente.Domain.Entities.Especialidade", "Especialidade")
                         .WithMany("Procedimentos")
                         .HasForeignKey("EspecialidadeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Especialidade");
@@ -2078,13 +1724,13 @@ namespace Gerente.Infra.Data.Migrations
                     b.HasOne("Gerente.Domain.Entities.Estado", "Estado")
                         .WithMany("Secretarias")
                         .HasForeignKey("EstadoId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Gerente.Domain.Entities.Municipio", "Municipio")
                         .WithMany("Secretarias")
                         .HasForeignKey("MunicipioId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Estado");
@@ -2097,7 +1743,7 @@ namespace Gerente.Infra.Data.Migrations
                     b.HasOne("Gerente.Domain.Entities.Secretaria", "Secretaria")
                         .WithMany("Setores")
                         .HasForeignKey("SecretariaId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Secretaria");
@@ -2108,19 +1754,19 @@ namespace Gerente.Infra.Data.Migrations
                     b.HasOne("Gerente.Domain.Entities.Pessoa", "Pessoa")
                         .WithMany("Telefones")
                         .HasForeignKey("PessoaId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Gerente.Domain.Entities.Secretaria", "Secretaria")
                         .WithMany("Telefones")
                         .HasForeignKey("SecretariaId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Gerente.Domain.Entities.Setor", "Setor")
                         .WithMany("Telefones")
                         .HasForeignKey("SetorId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Pessoa");
@@ -2135,7 +1781,7 @@ namespace Gerente.Infra.Data.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 
@@ -2144,7 +1790,7 @@ namespace Gerente.Infra.Data.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 
@@ -2153,7 +1799,7 @@ namespace Gerente.Infra.Data.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 
@@ -2162,13 +1808,13 @@ namespace Gerente.Infra.Data.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 
@@ -2177,7 +1823,7 @@ namespace Gerente.Infra.Data.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 

@@ -19,14 +19,14 @@ namespace Gerente.Api.Controllers
         }
 
         [HttpGet]
-        [ClaimsAuth("AditivosView")]
+        [ClaimsAuth(TipoAction.Get, "Aditivos")]
         public async Task<IEnumerable<AditivoViewModel>> Get()
         {
             return await _aditivoService.GetAsync();
         }
 
         [HttpPost]
-        [ClaimsAuth("AditivosAdd")]
+        [ClaimsAuth(TipoAction.Post, "Aditivos")]
         public async Task<IActionResult> Post(AditivoViewModel obj)
         {
             var objResult = await _aditivoService.AddAsync(obj);
@@ -34,7 +34,7 @@ namespace Gerente.Api.Controllers
         }
 
         [HttpPut]
-        [ClaimsAuth("AditivosEdit")]
+        [ClaimsAuth(TipoAction.Put, "Aditivos")]
         public async Task<IActionResult> Put(AditivoViewModel obj)
         {
             await _aditivoService.EditAsync(obj);
@@ -42,7 +42,7 @@ namespace Gerente.Api.Controllers
         }
 
         [HttpDelete("id")]
-        [ClaimsAuth("AditivosDelete")]
+        [ClaimsAuth(TipoAction.Delete, "Aditivos")]
         public async Task<IActionResult> Delete(int id)
         {
             await _aditivoService.DeleteAsync(id);

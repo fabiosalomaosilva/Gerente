@@ -19,6 +19,6 @@ namespace Gerente.Application.Models
         public string fotoUri { get; set; }
         public string issued { get; set; }
         public string expires { get; set; }
-        public List<Permissao> permissoes { get; set; }
+        public string permissoes { get; set; }
     }
 }

@@ -33,6 +33,7 @@ namespace Gerente.Api.MappingConfig
             CreateMap<Role, IdentityRole>();
             CreateMap<RoleClaim, IdentityRoleClaim<string>>();
             CreateMap<RoleClaim, Claim>();
+            CreateMap<RoleClaimViewModel, ClaimViewModel>();
         }
     }
     public class ViewModelToDomainUserMapping : Profile
@@ -45,6 +46,7 @@ namespace Gerente.Api.MappingConfig
             CreateMap<IdentityRole, Role>();
             CreateMap<IdentityRoleClaim<string>, RoleClaim>();
             CreateMap<Claim, RoleClaim>();
+            CreateMap<ClaimViewModel, RoleClaimViewModel>();
         }
     }
 }

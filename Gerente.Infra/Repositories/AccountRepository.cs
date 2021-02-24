@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using Gerente.Domain.Entities;
 using Gerente.Domain.Interfaces;
 using Gerente.Infra.Data.Context;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 using Usuario = Gerente.Infra.Data.Models.Usuario;
 
 namespace Gerente.Infra.Data.Repositories
@@ -124,10 +124,7 @@ namespace Gerente.Infra.Data.Repositories
 
             foreach (var i in lista)
             {
-                await _roleManager.AddClaimAsync(identityRole, new Claim($"{i}View", "false"));
-                await _roleManager.AddClaimAsync(identityRole, new Claim($"{i}Add", "false"));
-                await _roleManager.AddClaimAsync(identityRole, new Claim($"{i}Edit", "false"));
-                await _roleManager.AddClaimAsync(identityRole, new Claim($"{i}Delete", "false"));
+                await _roleManager.AddClaimAsync(identityRole, new Claim($"{i}", "0,0,0,0"));
             }
         }
 

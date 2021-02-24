@@ -154,37 +154,46 @@ namespace Gerente.Infra.Data.Context
                 builder.Entity<IdentityRoleClaim<string>>().HasData(new IdentityRoleClaim<string>
                 {
                     Id = id,
-                    ClaimType = $"{i}View",
-                    ClaimValue = "false",
+                    ClaimType = $"{i}",
+                    ClaimValue = "1,1,1,1",
                     RoleId = role.Id
                 });
 
-                id++;
-                builder.Entity<IdentityRoleClaim<string>>().HasData(new IdentityRoleClaim<string>
-                {
-                    Id = id,
-                    ClaimType = $"{i}Add",
-                    ClaimValue = "false",
-                    RoleId = role.Id
-                });
+                //id++;
+                //builder.Entity<IdentityRoleClaim<string>>().HasData(new IdentityRoleClaim<string>
+                //{
+                //    Id = id,
+                //    ClaimType = $"{i}View",
+                //    ClaimValue = "false",
+                //    RoleId = role.Id
+                //});
 
-                id++;
-                builder.Entity<IdentityRoleClaim<string>>().HasData(new IdentityRoleClaim<string>
-                {
-                    Id = id,
-                    ClaimType = $"{i}Edit",
-                    ClaimValue = "false",
-                    RoleId = role.Id
-                });
+                //id++;
+                //builder.Entity<IdentityRoleClaim<string>>().HasData(new IdentityRoleClaim<string>
+                //{
+                //    Id = id,
+                //    ClaimType = $"{i}Add",
+                //    ClaimValue = "false",
+                //    RoleId = role.Id
+                //});
 
-                id++;
-                builder.Entity<IdentityRoleClaim<string>>().HasData(new IdentityRoleClaim<string>
-                {
-                    Id = id,
-                    ClaimType = $"{i}Delete",
-                    ClaimValue = "false",
-                    RoleId = role.Id
-                });
+                //id++;
+                //builder.Entity<IdentityRoleClaim<string>>().HasData(new IdentityRoleClaim<string>
+                //{
+                //    Id = id,
+                //    ClaimType = $"{i}Edit",
+                //    ClaimValue = "false",
+                //    RoleId = role.Id
+                //});
+
+                //id++;
+                //builder.Entity<IdentityRoleClaim<string>>().HasData(new IdentityRoleClaim<string>
+                //{
+                //    Id = id,
+                //    ClaimType = $"{i}Delete",
+                //    ClaimValue = "false",
+                //    RoleId = role.Id
+                //});
 
             }
 
